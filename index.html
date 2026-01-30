@@ -3,14 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <title>湘南中央大学</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+    }
+    .hero {
+      position: relative;
+      height: 100vh;
+      background-image: url("enosima.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+    }
+    .hero-text {
+      position: absolute;
+      bottom: 15%;
+      right: 10%;
+      color: white;
+      z-index: 1;
+      text-align: right;
+    }
+    .hero-text h1 {
+      font-size: 48px;
+      margin: 0 0 10px;
+    }
+    .hero-text p {
+      font-size: 20px;
+      margin: 0;
+    }
+  </style>
 </head>
 <body>
-  <h1>湘南中央大学</h1>
-  <p>Shonan Central University</p>
-  <p>地域に根ざし、世界へ。</p>
 
-  <hr>
+  <div class="hero">
+    <div class="hero-text">
+      <p>Shonan Central University</p>
+      <h1>地域に根ざし、<br>世界へ。</h1>
+    </div>
+  </div>
 
-  <small>※本サイトは架空の大学を想定したフィクションです。</small>
 </body>
 </html>
+
