@@ -2,79 +2,77 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>湘南中央大学</title>
+  <title>湘南中央大学 | Shonan Central University</title>
   <style>
     body {
       margin: 0;
       font-family: "Helvetica Neue", Arial, sans-serif;
+      color: #111;
+      background: #fff;
     }
 
-    .hero {
-      position: relative;
-      height: 100vh;
-      background-image: url("enosima.jpg");
-      background-size: cover;
-      background-position: center;
+    header {
+      padding: 40px 60px;
+      border-bottom: 1px solid #ddd;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.35);
-    }
-
-    .hero-text {
-      position: absolute;
-      bottom: 15%;
-      right: 10%;
-      color: white;
-      z-index: 1;
-      text-align: right;
-    }
-
-    .hero-en {
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      line-height: 1;
-      margin-bottom: 12px;
-    }
-
-    .hero-from {
-      font-size: 52px;
-    }
-
-    .hero-to {
-      font-size: 20px;
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      margin: 12px 0 18px;
-      opacity: 0.85;
-    }
-
-    .hero-world {
-      font-size: 56px;
-    }
-
-    .hero-ja {
-      font-size: 18px;
+    .univ-en {
+      font-size: 14px;
       letter-spacing: 0.15em;
-      opacity: 0.9;
+      color: #666;
+    }
+
+    .univ-ja {
+      font-size: 32px;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    main {
+      padding: 120px 60px;
+    }
+
+    .slogan-en {
+      font-size: 56px;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .slogan-ja {
+      font-size: 18px;
+      letter-spacing: 0.2em;
+      color: #444;
+    }
+
+    footer {
+      padding: 40px 60px;
+      font-size: 12px;
+      color: #777;
+      border-top: 1px solid #ddd;
     }
   </style>
 </head>
 <body>
 
-  <div class="hero">
-    <div class="hero-text">
-      <div class="hero-en">
-        <div class="hero-from">From Shonan</div>
-        <div class="hero-to">to</div>
-        <div class="hero-world">the World</div>
-      </div>
-      <div class="hero-ja">湘南を起点に、世界を舞台に。</div>
-    </div>
+<header>
+  <div class="univ-en">SHONAN CENTRAL UNIVERSITY</div>
+  <div class="univ-ja">湘南中央大学</div>
+</header>
+
+<main>
+  <div class="slogan-en">
+    From Shonan<br>
+    To the World
   </div>
+  <div class="slogan-ja">
+    湘南を起点に、世界を舞台に。
+  </div>
+</main>
+
+<footer>
+  © Shonan Central University
+</footer>
 
 </body>
 </html>
