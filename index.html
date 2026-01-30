@@ -8,6 +8,7 @@
       margin: 0;
       font-family: "Helvetica Neue", Arial, sans-serif;
     }
+
     .hero {
       position: relative;
       height: 100vh;
@@ -15,12 +16,14 @@
       background-size: cover;
       background-position: center;
     }
+
     .hero::after {
       content: "";
       position: absolute;
       inset: 0;
       background: rgba(0,0,0,0.35);
     }
+
     .hero-text {
       position: absolute;
       bottom: 15%;
@@ -29,24 +32,30 @@
       z-index: 1;
       text-align: right;
     }
-    .hero-text h1 {
+
+    .hero-en {
       font-size: 48px;
-      margin: 0 0 10px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+      margin-bottom: 10px;
     }
-    .hero-text p {
-      font-size: 20px;
-      margin: 0;
+
+    .hero-ja {
+      font-size: 18px;
+      letter-spacing: 0.15em;
+      opacity: 0.9;
     }
   </style>
 </head>
 <body>
 
-<div class="hero-text">
-  <div class="hero-en">From Shonan to the World</div>
-  <div class="hero-ja">湘南を起点に、世界を舞台に。</div>
-</div>
+  <div class="hero">
+    <div class="hero-text">
+      <div class="hero-en">From Shonan to the World</div>
+      <div class="hero-ja">湘南を起点に、世界を舞台に。</div>
+    </div>
   </div>
 
 </body>
 </html>
-
