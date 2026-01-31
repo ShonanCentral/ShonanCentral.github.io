@@ -13,19 +13,23 @@
       background: #ffffff;
     }
 
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
     /* ===== Header ===== */
     header {
       display: flex;
       align-items: center;
       gap: 22px;
       padding: 22px 60px;
-      background: #0b2a44; /* 深いネイビー */
+      background: #0b2a44;
       box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     }
 
     .emblem {
       width: 56px;
-      height: auto;
     }
 
     .header-text {
@@ -46,10 +50,39 @@
       color: #ffffff;
     }
 
+    /* ===== Utility Nav ===== */
+    .utility-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 60px;
+      background: #5a5a5a;
+      color: #ffffff;
+      font-size: 13px;
+    }
+
+    .utility-left,
+    .utility-right {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+
+    .utility-left span,
+    .utility-right span {
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .utility-left span:hover,
+    .utility-right span:hover {
+      text-decoration: underline;
+    }
+
     /* ===== Hero ===== */
     .hero {
       position: relative;
-      min-height: calc(100vh - 96px); /* ヘッダー分を引く */
+      min-height: calc(100vh - 150px);
       background-image: url("enosima.jpg");
       background-size: cover;
       background-position: center;
@@ -59,7 +92,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.35);
+      background: rgba(0,0,0,0.35);
     }
 
     .hero-text {
@@ -96,17 +129,36 @@
 
 <body>
 
+  <!-- Header -->
   <header>
-    <!-- 校章 -->
     <img src="emblem.png" alt="湘南中央大学 校章" class="emblem">
-
-    <!-- 大学名 -->
     <div class="header-text">
       <div class="univ-en">SHONAN CENTRAL UNIVERSITY</div>
       <div class="univ-ja">湘南中央大学</div>
     </div>
   </header>
 
+  <!-- Utility Navigation -->
+  <nav class="utility-nav">
+    <div class="utility-left">
+      <span>LINE公式</span>
+      <span>受験生</span>
+      <span>卒業生</span>
+      <span>保護者等</span>
+      <span>在学生・教職員</span>
+      <span>一般・連携</span>
+    </div>
+
+    <div class="utility-right">
+      <span>ご寄付</span>
+      <span>アクセス</span>
+      <span>データ集</span>
+      <span>検索</span>
+      <span>Language</span>
+    </div>
+  </nav>
+
+  <!-- Hero -->
   <section class="hero">
     <div class="hero-text">
       <div class="hero-en">
@@ -119,6 +171,7 @@
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
     © Shonan Central University
   </footer>
