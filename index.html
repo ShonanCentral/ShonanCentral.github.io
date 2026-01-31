@@ -42,25 +42,15 @@
     .univ-name {
       font-weight: 600;
       font-size: 15px;
-      padding: 0 10px;
+      padding: 0 14px;
     }
 
     .nav-item {
-      position: relative;
-      padding: 0 10px;
+      padding: 0 14px;
       cursor: pointer;
     }
 
-    .nav-item:not(:first-of-type)::before {
-      content: "｜";
-      position: absolute;
-      left: -10px;
-      color: rgba(255,255,255,0.6);
-      pointer-events: none;
-    }
-
-    .nav-item:hover,
-    .nav-item.active {
+    .nav-item:hover {
       text-decoration: underline;
     }
 
@@ -68,29 +58,31 @@
     .top-right {
       display: flex;
       align-items: center;
-      white-space: nowrap;
     }
 
     .right-nav {
       display: flex;
       align-items: center;
+      gap: 0;
     }
 
+    /* |  ITEM  | を1セットで表現 */
     .right-item {
-      position: relative;
-      padding: 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 0 6px;
       cursor: pointer;
     }
 
-    .right-item:not(:first-child)::before {
-      content: "｜";
-      position: absolute;
-      left: -12px;
+    .right-item::before,
+    .right-item::after {
+      content: "|";
       color: rgba(255,255,255,0.6);
       pointer-events: none;
     }
 
-    .right-item:hover {
+    .right-item:hover span {
       text-decoration: underline;
     }
 
@@ -162,11 +154,11 @@
     <!-- RIGHT -->
     <div class="top-right">
       <div class="right-nav">
-        <span class="right-item">ご寄付</span>
-        <span class="right-item">アクセス</span>
-        <span class="right-item">データ集</span>
-        <span class="right-item">検索</span>
-        <span class="right-item">Language</span>
+        <div class="right-item"><span>ご寄付</span></div>
+        <div class="right-item"><span>アクセス</span></div>
+        <div class="right-item"><span>データ集</span></div>
+        <div class="right-item"><span>検索</span></div>
+        <div class="right-item"><span>Language</span></div>
       </div>
     </div>
 
