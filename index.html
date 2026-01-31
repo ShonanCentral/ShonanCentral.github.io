@@ -17,33 +17,23 @@
       align-items: center;
       justify-content: space-between;
       padding: 16px 48px;
-      background: #0b2a44; /* ネイビーブルー */
+      background: #0b2a44;
       color: #ffffff;
       font-size: 14px;
     }
 
-    .top-left,
-    .top-right {
+    /* ---------- LEFT ---------- */
+    .top-left {
       display: flex;
       align-items: center;
       white-space: nowrap;
     }
 
-    .top-left {
-      gap: 0;
-    }
-
-    .top-right {
-      gap: 22px;
-    }
-
-    /* 校章 */
     .logo {
-      height: 56px; /* 少し大きめ */
+      height: 56px;
       margin-right: 14px;
     }
 
-    /* 大学名＋ナビ全体 */
     .univ-line {
       display: flex;
       align-items: center;
@@ -55,32 +45,59 @@
       padding: 0 10px;
     }
 
-    /* ナビ項目 */
     .nav-item {
       position: relative;
       padding: 0 10px;
       cursor: pointer;
     }
 
-    /* 区切り記号は前の要素側に表示 */
     .nav-item:not(:first-of-type)::before {
       content: "｜";
       position: absolute;
       left: -10px;
       color: rgba(255,255,255,0.6);
-      pointer-events: none; /* ←選択に含めない */
+      pointer-events: none;
     }
 
-    /* hover / active は文字だけ */
     .nav-item:hover,
     .nav-item.active {
+      text-decoration: underline;
+    }
+
+    /* ---------- RIGHT ---------- */
+    .top-right {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    .right-nav {
+      display: flex;
+      align-items: center;
+    }
+
+    .right-item {
+      position: relative;
+      padding: 0 12px;
+      cursor: pointer;
+    }
+
+    .right-item:not(:first-child)::before {
+      content: "｜";
+      position: absolute;
+      left: -12px;
+      color: rgba(255,255,255,0.6);
+      pointer-events: none;
+    }
+
+    .right-item:hover {
       text-decoration: underline;
     }
 
     /* ===== HERO ===== */
     .hero {
       position: relative;
-      min-height: calc(100vh - 88px); /* トップバー分 */
+      min-height: calc(100vh - 88px);
       background-image: url("enosima.jpg");
       background-size: cover;
       background-position: center;
@@ -122,11 +139,10 @@
   <!-- TOP BAR -->
   <div class="top-bar">
 
+    <!-- LEFT -->
     <div class="top-left">
-      <!-- 校章 -->
       <img src="newemblem.png" alt="湘南中央大学 校章" class="logo">
 
-      <!-- 大学名 + ナビ -->
       <div class="univ-line">
         <span class="univ-name">湘南中央大学</span>
 
@@ -143,12 +159,15 @@
       </div>
     </div>
 
+    <!-- RIGHT -->
     <div class="top-right">
-      <span class="nav-item">ご寄付</span>
-      <span class="nav-item">アクセス</span>
-      <span class="nav-item">データ集</span>
-      <span class="nav-item">検索</span>
-      <span class="nav-item">Language</span>
+      <div class="right-nav">
+        <span class="right-item">ご寄付</span>
+        <span class="right-item">アクセス</span>
+        <span class="right-item">データ集</span>
+        <span class="right-item">検索</span>
+        <span class="right-item">Language</span>
+      </div>
     </div>
 
   </div>
