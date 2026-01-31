@@ -11,81 +11,49 @@
       background: #ffffff;
     }
 
-    /* ===== Header ===== */
-    header {
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ===== Top Bar (ALL IN ONE) ===== */
+    .top-bar {
       display: flex;
       align-items: center;
-      gap: 22px;
-      padding: 22px 60px;
-      background: #0b2a44;
-    }
-
-    .emblem {
-      width: 56px;
-    }
-
-    .header-main {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .univ-en {
-      font-size: 13px;
-      letter-spacing: 0.18em;
-      color: #cfd8e3;
-    }
-
-    .univ-line {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-top: 4px;
-      color: #ffffff;
-    }
-
-    .univ-ja {
-      font-size: 30px;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-
-    .univ-tags {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 14px;
-      letter-spacing: 0.15em;
-      color: #cfd8e3;
-    }
-
-    .univ-tags span::before {
-      content: "｜";
-      margin-right: 10px;
-      color: rgba(255,255,255,0.5);
-    }
-
-    /* ===== Utility Nav ===== */
-    .utility-nav {
-      display: flex;
       justify-content: space-between;
-      align-items: center;
-      padding: 10px 60px;
+      padding: 14px 40px;
       background: #5a5a5a;
       color: #ffffff;
       font-size: 13px;
     }
 
-    .utility-left,
-    .utility-right {
+    .top-left,
+    .top-right {
       display: flex;
+      align-items: center;
       gap: 26px;
       white-space: nowrap;
+    }
+
+    .logo {
+      height: 44px;
+      margin-right: 20px;
+    }
+
+    .top-left span,
+    .top-right span {
+      cursor: pointer;
+    }
+
+    .top-left span:hover,
+    .top-right span:hover {
+      text-decoration: underline;
     }
 
     /* ===== Hero ===== */
     .hero {
       position: relative;
-      min-height: calc(100vh - 160px);
+      min-height: calc(100vh - 72px); /* 上バー分 */
       background-image: url("enosima.jpg");
       background-size: cover;
       background-position: center;
@@ -124,28 +92,13 @@
 
 <body>
 
-  <!-- Header -->
-  <header>
-    <img src="emblem.png" alt="湘南中央大学 校章" class="emblem">
+  <!-- TOP BAR -->
+  <div class="top-bar">
 
-    <div class="header-main">
-      <div class="univ-en">SHONAN CENTRAL UNIVERSITY</div>
+    <div class="top-left">
+      <!-- emblem.png に大学名込み -->
+      <img src="emblem.png" alt="湘南中央大学" class="logo">
 
-      <div class="univ-line">
-        <div class="univ-ja">湘南中央大学</div>
-
-        <div class="univ-tags">
-          <span>教育</span>
-          <span>研究</span>
-          <span>社会連携</span>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- Utility Nav -->
-  <nav class="utility-nav">
-    <div class="utility-left">
       <span>LINE公式</span>
       <span>受験生</span>
       <span>卒業生</span>
@@ -154,20 +107,26 @@
       <span>一般・連携</span>
     </div>
 
-    <div class="utility-right">
+    <div class="top-right">
       <span>ご寄付</span>
       <span>アクセス</span>
       <span>データ集</span>
       <span>検索</span>
       <span>Language</span>
     </div>
-  </nav>
 
-  <!-- Hero -->
+  </div>
+
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-text">
-      <div class="hero-en">From Shonan<br>To the World</div>
-      <div class="hero-ja">湘南を起点に、世界を舞台に。</div>
+      <div class="hero-en">
+        From Shonan<br>
+        To the World
+      </div>
+      <div class="hero-ja">
+        湘南を起点に、世界を舞台に。
+      </div>
     </div>
   </section>
 
