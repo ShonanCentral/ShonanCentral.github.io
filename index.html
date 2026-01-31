@@ -11,33 +11,48 @@
       background: #ffffff;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* ===== Top Bar (ALL IN ONE) ===== */
+    /* ===== Top Bar ===== */
     .top-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 14px 40px;
-      background: #5a5a5a;
+      padding: 16px 48px;
+      background: #0b2a44; /* ネイビーブルー */
       color: #ffffff;
-      font-size: 13px;
+      font-size: 14px;
     }
 
     .top-left,
     .top-right {
       display: flex;
       align-items: center;
-      gap: 26px;
+      gap: 18px;
       white-space: nowrap;
     }
 
+    /* 校章 */
     .logo {
-      height: 44px;
-      margin-right: 20px;
+      height: 52px; /* 少し大きめ */
+      margin-right: 10px;
+    }
+
+    /* 大学名＋区切り */
+    .univ-line {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 15px;
+      letter-spacing: 0.08em;
+    }
+
+    .univ-name {
+      font-weight: 600;
+    }
+
+    .univ-tag::before {
+      content: "｜";
+      margin: 0 10px 0 4px;
+      color: rgba(255,255,255,0.6);
     }
 
     .top-left span,
@@ -53,7 +68,7 @@
     /* ===== Hero ===== */
     .hero {
       position: relative;
-      min-height: calc(100vh - 72px); /* 上バー分 */
+      min-height: calc(100vh - 84px);
       background-image: url("enosima.jpg");
       background-size: cover;
       background-position: center;
@@ -96,15 +111,24 @@
   <div class="top-bar">
 
     <div class="top-left">
-      <!-- emblem.png に大学名込み -->
-      <img src="emblem.png" alt="湘南中央大学" class="logo">
+      <!-- 校章 -->
+      <img src="emblem.png" alt="湘南中央大学 校章" class="logo">
 
-      <span>LINE公式</span>
-      <span>受験生</span>
-      <span>卒業生</span>
-      <span>保護者等</span>
-      <span>在学生・教職員</span>
-      <span>一般・連携</span>
+      <!-- 大学名＋区切りワード -->
+      <div class="univ-line">
+        <span class="univ-name">湘南中央大学</span>
+        <span class="univ-tag">教育</span>
+        <span class="univ-tag">研究</span>
+        <span class="univ-tag">社会連携</span>
+      </div>
+
+      <!-- 利用者別ナビ -->
+      <span class="univ-tag">LINE公式</span>
+      <span class="univ-tag">受験生</span>
+      <span class="univ-tag">卒業生</span>
+      <span class="univ-tag">保護者等</span>
+      <span class="univ-tag">在学生・教職員</span>
+      <span class="univ-tag">一般・連携</span>
     </div>
 
     <div class="top-right">
