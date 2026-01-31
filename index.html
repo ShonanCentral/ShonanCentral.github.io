@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>湘南中央大学 | Shonan Central University</title>
+
   <style>
+    /* ===== Base ===== */
     body {
       margin: 0;
       font-family: "Helvetica Neue", Arial, sans-serif;
@@ -14,7 +16,7 @@
     /* ===== Header ===== */
     header {
       padding: 26px 60px;
-      background: #0b2a44; /* 深いネイビーブルー */
+      background: #0b2a44; /* 深いネイビー */
       box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     }
 
@@ -34,7 +36,7 @@
     /* ===== Hero ===== */
     .hero {
       position: relative;
-      height: 70vh;
+      min-height: calc(100vh - 98px); /* ヘッダー分を引いて下まで */
       background-image: url("enosima.jpg");
       background-size: cover;
       background-position: center;
@@ -78,6 +80,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <header>
