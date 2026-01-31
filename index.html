@@ -5,17 +5,10 @@
   <title>湘南中央大学 | Shonan Central University</title>
 
   <style>
-    /* ===== Base ===== */
     body {
       margin: 0;
       font-family: "Helvetica Neue", Arial, sans-serif;
-      color: #111;
       background: #ffffff;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
     }
 
     /* ===== Header ===== */
@@ -25,14 +18,13 @@
       gap: 22px;
       padding: 22px 60px;
       background: #0b2a44;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     }
 
     .emblem {
       width: 56px;
     }
 
-    .header-text {
+    .header-main {
       display: flex;
       flex-direction: column;
     }
@@ -43,11 +35,33 @@
       color: #cfd8e3;
     }
 
+    .univ-line {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 4px;
+      color: #ffffff;
+    }
+
     .univ-ja {
       font-size: 30px;
       font-weight: 600;
-      margin-top: 4px;
-      color: #ffffff;
+      white-space: nowrap;
+    }
+
+    .univ-tags {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      letter-spacing: 0.15em;
+      color: #cfd8e3;
+    }
+
+    .univ-tags span::before {
+      content: "｜";
+      margin-right: 10px;
+      color: rgba(255,255,255,0.5);
     }
 
     /* ===== Utility Nav ===== */
@@ -64,25 +78,14 @@
     .utility-left,
     .utility-right {
       display: flex;
-      align-items: center;
       gap: 26px;
-    }
-
-    .utility-left span,
-    .utility-right span {
-      cursor: pointer;
       white-space: nowrap;
-    }
-
-    .utility-left span:hover,
-    .utility-right span:hover {
-      text-decoration: underline;
     }
 
     /* ===== Hero ===== */
     .hero {
       position: relative;
-      min-height: calc(100vh - 150px);
+      min-height: calc(100vh - 160px);
       background-image: url("enosima.jpg");
       background-size: cover;
       background-position: center;
@@ -108,21 +111,13 @@
       font-size: 56px;
       font-weight: 600;
       line-height: 1.15;
-      margin-bottom: 18px;
     }
 
     .hero-ja {
       font-size: 18px;
       letter-spacing: 0.2em;
+      margin-top: 14px;
       opacity: 0.9;
-    }
-
-    /* ===== Footer ===== */
-    footer {
-      padding: 30px 60px;
-      font-size: 12px;
-      color: #777;
-      border-top: 1px solid #ddd;
     }
   </style>
 </head>
@@ -132,13 +127,23 @@
   <!-- Header -->
   <header>
     <img src="emblem.png" alt="湘南中央大学 校章" class="emblem">
-    <div class="header-text">
+
+    <div class="header-main">
       <div class="univ-en">SHONAN CENTRAL UNIVERSITY</div>
-      <div class="univ-ja">湘南中央大学</div>
+
+      <div class="univ-line">
+        <div class="univ-ja">湘南中央大学</div>
+
+        <div class="univ-tags">
+          <span>教育</span>
+          <span>研究</span>
+          <span>社会連携</span>
+        </div>
+      </div>
     </div>
   </header>
 
-  <!-- Utility Navigation -->
+  <!-- Utility Nav -->
   <nav class="utility-nav">
     <div class="utility-left">
       <span>LINE公式</span>
@@ -161,20 +166,10 @@
   <!-- Hero -->
   <section class="hero">
     <div class="hero-text">
-      <div class="hero-en">
-        From Shonan<br>
-        To the World
-      </div>
-      <div class="hero-ja">
-        湘南を起点に、世界を舞台に。
-      </div>
+      <div class="hero-en">From Shonan<br>To the World</div>
+      <div class="hero-ja">湘南を起点に、世界を舞台に。</div>
     </div>
   </section>
-
-  <!-- Footer -->
-  <footer>
-    © Shonan Central University
-  </footer>
 
 </body>
 </html>
