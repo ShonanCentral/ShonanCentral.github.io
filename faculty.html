@@ -94,25 +94,49 @@
       color: #555;
       font-size: 15px;
       line-height: 1.8;
+      max-width: 900px;
     }
 
-    /* ===== CONTENT ===== */
-    .content {
+    /* ===== FACULTY LIST ===== */
+    .faculty-section {
       padding: 72px 48px;
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 0 auto;
     }
 
-    .content h2 {
-      margin-top: 0;
-      font-size: 22px;
+    .faculty {
+      margin-bottom: 56px;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 40px;
     }
 
-    .content p {
+    .faculty:last-child {
+      border-bottom: none;
+    }
+
+    .faculty h2 {
+      font-size: 24px;
+      margin: 0;
+    }
+
+    .faculty .departments {
+      margin-top: 12px;
+      font-size: 15px;
+      color: #333;
+    }
+
+    .faculty .departments span {
+      margin-right: 16px;
+    }
+
+    .faculty .description {
+      margin-top: 16px;
+      color: #555;
       line-height: 1.8;
-      color: #444;
+      max-width: 900px;
     }
 
+    /* ===== FOOTER ===== */
     footer {
       margin-top: 80px;
       padding: 24px 48px;
@@ -138,6 +162,7 @@
         <span class="nav-item">研究</span>
         <span class="nav-item">社会連携</span>
         <a href="exam.html" class="nav-item">受験生</a>
+        <span class="nav-item active">学部・学科</span>
         <span class="nav-item">LINE公式</span>
         <span class="nav-item">卒業生</span>
         <span class="nav-item">保護者等</span>
@@ -159,18 +184,91 @@
   <section class="page-header">
     <h1>学部・学科</h1>
     <p>
-      湘南中央大学では、多様な分野にわたる学部・学科を設置し、<br>
-      社会とつながる実践的な学びを提供しています。
+      湘南中央大学では、基礎学問から地域・社会に根ざした実践的分野まで、
+      幅広い学びを提供しています。
     </p>
   </section>
 
-  <!-- CONTENT -->
-  <main class="content">
-    <h2>現在準備中です</h2>
-    <p>
-      各学部・学科の詳細情報は、現在準備中です。<br>
-      情報は順次公開予定です。
-    </p>
+  <!-- FACULTY LIST -->
+  <main class="faculty-section">
+
+    <div class="faculty">
+      <h2>文学部</h2>
+      <div class="departments">
+        <span>日本文学科</span>
+        <span>英語英米文学科</span>
+      </div>
+      <p class="description">
+        中堅私立大学の定番学部として、ことばと文化を深く学びます。
+        地元の中学校・高等学校の国語・英語教員を多く輩出しており、
+        教育分野への進路に強みを持っています。
+      </p>
+    </div>
+
+    <div class="faculty">
+      <h2>経済学部</h2>
+      <div class="departments">
+        <span>経済学科</span>
+        <span>経営学科</span>
+      </div>
+      <p class="description">
+        学内最大の学生数を誇る実学重視の学部です。
+        地元の信用金庫、市役所、民間企業への就職に強く、
+        地域経済を支える人材育成を目指しています。
+      </p>
+    </div>
+
+    <div class="faculty">
+      <h2>法学部</h2>
+      <div class="departments">
+        <span>法律学科</span>
+        <span>地域政策学科</span>
+      </div>
+      <p class="description">
+        公務員試験対策講座が充実しており、資格取得に励む学生が多い学部です。
+        「中央」の名を冠する大学としての誇りを持ち、
+        法律と政策の両面から社会に貢献できる人材を育成します。
+      </p>
+    </div>
+
+    <div class="faculty">
+      <h2>人間社会学部</h2>
+      <div class="departments">
+        <span>社会学科</span>
+        <span>心理学科</span>
+      </div>
+      <p class="description">
+        心理や福祉、地域社会に関心を持つ学生が集まる学部です。
+        湘南地域の福祉施設との連携を通じて、実践的な学びを重視しています。
+      </p>
+    </div>
+
+    <div class="faculty">
+      <h2>観光文化学部</h2>
+      <div class="departments">
+        <span>観光学科</span>
+        <span>地域交流学科</span>
+      </div>
+      <p class="description">
+        湘南という地域特性を生かした特色ある学部です。
+        江の島周辺の観光振興を実習の場とし、
+        観光を「文化」や「交流」として捉える学びを展開します。
+      </p>
+    </div>
+
+    <div class="faculty">
+      <h2>生活環境計画学部</h2>
+      <div class="departments">
+        <span>住居学科</span>
+        <span>都市意匠学科</span>
+      </div>
+      <p class="description">
+        海辺の住環境や景観を守る建築・都市デザインを学びます。
+        「デザイン」を「計画」や「意匠」として捉え、
+        湘南らしい暮らしと街づくりを考える学部です。
+      </p>
+    </div>
+
   </main>
 
   <footer>
