@@ -17,7 +17,7 @@
       text-decoration: none;
     }
 
-    /* ===== TOP BAR（index.htmlと共通） ===== */
+    /* ===== TOP BAR ===== */
     .top-bar {
       display: flex;
       align-items: center;
@@ -28,6 +28,16 @@
       font-size: 14px;
     }
 
+    /* ナビ内リンク色を完全統一（←今回の修正ポイント） */
+    .top-bar a,
+    .top-bar a:visited,
+    .top-bar a:hover,
+    .top-bar a:active {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    /* ---------- LEFT ---------- */
     .top-left {
       display: flex;
       align-items: center;
@@ -59,6 +69,12 @@
       text-decoration: underline;
     }
 
+    /* 今いるページ（受験生） */
+    .nav-item.active {
+      text-decoration: underline;
+    }
+
+    /* ---------- RIGHT ---------- */
     .top-right {
       display: flex;
       align-items: center;
@@ -132,8 +148,8 @@
         <span class="nav-item">研究</span>
         <span class="nav-item">社会連携</span>
 
-        <!-- 今いるページ -->
-        <span class="nav-item"><strong>受験生</strong></span>
+        <!-- 受験生（現在ページ） -->
+        <a href="exam.html" class="nav-item active">受験生</a>
 
         <span class="nav-item">LINE公式</span>
         <span class="nav-item">卒業生</span>
@@ -154,32 +170,4 @@
   </div>
 
   <!-- PAGE HEADER -->
-  <section class="page-header">
-    <h1>受験生の方へ</h1>
-    <p>
-      湘南中央大学への進学をお考えの皆さまへ。<br>
-      学部・学科、入試情報、オープンキャンパスなどの情報を順次ご案内します。
-    </p>
-  </section>
-
-  <!-- CONTENT -->
-  <main class="content">
-    <h2>このページについて</h2>
-    <p>
-      このページでは、湘南中央大学を志望する受験生の皆さまに向けて、
-      学びの特徴や入試に関する情報を掲載していきます。
-    </p>
-
-    <p>
-      現在、内容は準備中です。<br>
-      情報は今後、順次追加される予定です。
-    </p>
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    © 湘南中央大学
-  </footer>
-
-</body>
-</html>
+  <section class="page-heade
