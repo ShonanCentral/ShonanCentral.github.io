@@ -11,7 +11,7 @@
       background: #ffffff;
     }
 
-    /* ===== Top Bar ===== */
+    /* ===== TOP BAR ===== */
     .top-bar {
       display: flex;
       align-items: center;
@@ -26,49 +26,61 @@
     .top-right {
       display: flex;
       align-items: center;
-      gap: 18px;
       white-space: nowrap;
+    }
+
+    .top-left {
+      gap: 0;
+    }
+
+    .top-right {
+      gap: 22px;
     }
 
     /* 校章 */
     .logo {
-      height: 52px; /* 少し大きめ */
-      margin-right: 10px;
+      height: 56px; /* 少し大きめ */
+      margin-right: 14px;
     }
 
-    /* 大学名＋区切り */
+    /* 大学名＋ナビ全体 */
     .univ-line {
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-size: 15px;
-      letter-spacing: 0.08em;
     }
 
     .univ-name {
       font-weight: 600;
+      font-size: 15px;
+      padding: 0 10px;
     }
 
-    .univ-tag::before {
-      content: "｜";
-      margin: 0 10px 0 4px;
-      color: rgba(255,255,255,0.6);
-    }
-
-    .top-left span,
-    .top-right span {
+    /* ナビ項目 */
+    .nav-item {
+      position: relative;
+      padding: 0 10px;
       cursor: pointer;
     }
 
-    .top-left span:hover,
-    .top-right span:hover {
+    /* 区切り記号は前の要素側に表示 */
+    .nav-item:not(:first-of-type)::before {
+      content: "｜";
+      position: absolute;
+      left: -10px;
+      color: rgba(255,255,255,0.6);
+      pointer-events: none; /* ←選択に含めない */
+    }
+
+    /* hover / active は文字だけ */
+    .nav-item:hover,
+    .nav-item.active {
       text-decoration: underline;
     }
 
-    /* ===== Hero ===== */
+    /* ===== HERO ===== */
     .hero {
       position: relative;
-      min-height: calc(100vh - 84px);
+      min-height: calc(100vh - 88px); /* トップバー分 */
       background-image: url("enosima.jpg");
       background-size: cover;
       background-position: center;
@@ -114,29 +126,29 @@
       <!-- 校章 -->
       <img src="newemblem.png" alt="湘南中央大学 校章" class="logo">
 
-      <!-- 大学名＋区切りワード -->
+      <!-- 大学名 + ナビ -->
       <div class="univ-line">
         <span class="univ-name">湘南中央大学</span>
-        <span class="univ-tag">教育</span>
-        <span class="univ-tag">研究</span>
-        <span class="univ-tag">社会連携</span>
-      </div>
 
-      <!-- 利用者別ナビ -->
-      <span class="univ-tag">LINE公式</span>
-      <span class="univ-tag">受験生</span>
-      <span class="univ-tag">卒業生</span>
-      <span class="univ-tag">保護者等</span>
-      <span class="univ-tag">在学生・教職員</span>
-      <span class="univ-tag">一般・連携</span>
+        <span class="nav-item">教育</span>
+        <span class="nav-item">研究</span>
+        <span class="nav-item">社会連携</span>
+
+        <span class="nav-item">LINE公式</span>
+        <span class="nav-item">受験生</span>
+        <span class="nav-item">卒業生</span>
+        <span class="nav-item">保護者等</span>
+        <span class="nav-item">在学生・教職員</span>
+        <span class="nav-item">一般・連携</span>
+      </div>
     </div>
 
     <div class="top-right">
-      <span>ご寄付</span>
-      <span>アクセス</span>
-      <span>データ集</span>
-      <span>検索</span>
-      <span>Language</span>
+      <span class="nav-item">ご寄付</span>
+      <span class="nav-item">アクセス</span>
+      <span class="nav-item">データ集</span>
+      <span class="nav-item">検索</span>
+      <span class="nav-item">Language</span>
     </div>
 
   </div>
