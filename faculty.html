@@ -97,7 +97,7 @@
       max-width: 900px;
     }
 
-    /* ===== FACULTY LIST ===== */
+    /* ===== FACULTY ===== */
     .faculty-section {
       padding: 72px 48px;
       max-width: 1100px;
@@ -105,9 +105,9 @@
     }
 
     .faculty {
-      margin-bottom: 56px;
-      border-bottom: 1px solid #e0e0e0;
+      margin-bottom: 64px;
       padding-bottom: 40px;
+      border-bottom: 1px solid #e0e0e0;
     }
 
     .faculty:last-child {
@@ -116,27 +116,32 @@
 
     .faculty h2 {
       font-size: 24px;
-      margin: 0;
+      margin-bottom: 20px;
     }
 
-    .faculty .departments {
-      margin-top: 12px;
-      font-size: 15px;
-      color: #333;
+    .department {
+      margin-bottom: 16px;
     }
 
-    .faculty .departments span {
-      margin-right: 16px;
+    .department-title {
+      font-weight: 600;
+      font-size: 16px;
     }
 
-    .faculty .description {
-      margin-top: 16px;
+    .capacity {
+      font-size: 13px;
+      color: #666;
+      margin-left: 8px;
+    }
+
+    .description {
+      margin-top: 6px;
+      font-size: 14px;
       color: #555;
-      line-height: 1.8;
+      line-height: 1.7;
       max-width: 900px;
     }
 
-    /* ===== FOOTER ===== */
     footer {
       margin-top: 80px;
       padding: 24px 48px;
@@ -163,11 +168,6 @@
         <span class="nav-item">社会連携</span>
         <a href="exam.html" class="nav-item">受験生</a>
         <span class="nav-item active">学部・学科</span>
-        <span class="nav-item">LINE公式</span>
-        <span class="nav-item">卒業生</span>
-        <span class="nav-item">保護者等</span>
-        <span class="nav-item">在学生・教職員</span>
-        <span class="nav-item">一般・連携</span>
       </div>
     </div>
 
@@ -180,12 +180,12 @@
     </div>
   </div>
 
-  <!-- PAGE HEADER -->
+  <!-- HEADER -->
   <section class="page-header">
     <h1>学部・学科</h1>
     <p>
-      湘南中央大学では、基礎学問から地域・社会に根ざした実践的分野まで、
-      幅広い学びを提供しています。
+      湘南中央大学では、実学を重視した教育を通じて、
+      地域社会およびグローバル社会で活躍できる人材を育成しています。
     </p>
   </section>
 
@@ -193,80 +193,171 @@
   <main class="faculty-section">
 
     <div class="faculty">
-      <h2>文学部</h2>
-      <div class="departments">
-        <span>日本文学科</span>
-        <span>英語英米文学科</span>
+      <h2>経営学部</h2>
+
+      <div class="department">
+        <div class="department-title">経営学科
+          <span class="capacity">（定員200名）</span>
+        </div>
+        <div class="description">
+          学部の中心となる学科。組織管理から起業まで幅広く学び、
+          地元企業への高い就職実績を誇ります。
+        </div>
       </div>
-      <p class="description">
-        中堅私立大学の定番学部として、ことばと文化を深く学びます。
-        地元の中学校・高等学校の国語・英語教員を多く輩出しており、
-        教育分野への進路に強みを持っています。
-      </p>
+
+      <div class="department">
+        <div class="department-title">経営情報学科
+          <span class="capacity">（定員80名）</span>
+        </div>
+        <div class="description">
+          IT×実務を重視。経営分析に必要なITスキルを習得し、
+          システム開発やデータ分析の即戦力を育成します。
+        </div>
+      </div>
+
+      <div class="department">
+        <div class="department-title">国際経営学科
+          <span class="capacity">（定員50名）</span>
+        </div>
+        <div class="description">
+          少数精鋭の教育体制。語学教育と貿易実務に特化し、
+          海外インターンシップを積極的に推奨しています。
+        </div>
+      </div>
     </div>
 
     <div class="faculty">
       <h2>経済学部</h2>
-      <div class="departments">
-        <span>経済学科</span>
-        <span>経営学科</span>
+
+      <div class="department">
+        <div class="department-title">経済学科
+          <span class="capacity">（定員300名）</span>
+        </div>
+        <div class="description">
+          本学最大規模の学科。金融・公共・産業など多角的な視点を養い、
+          公務員試験対策が非常に充実しています。
+        </div>
       </div>
-      <p class="description">
-        学内最大の学生数を誇る実学重視の学部です。
-        地元の信用金庫、市役所、民間企業への就職に強く、
-        地域経済を支える人材育成を目指しています。
-      </p>
+
+      <div class="department">
+        <div class="department-title">国際経済学科
+          <span class="capacity">（定員120名）</span>
+        </div>
+        <div class="description">
+          アジア・欧米の経済構造を比較研究し、
+          グローバルな視点を持つビジネス人材を育成します。
+        </div>
+      </div>
     </div>
 
     <div class="faculty">
       <h2>法学部</h2>
-      <div class="departments">
-        <span>法律学科</span>
-        <span>地域政策学科</span>
+
+      <div class="department">
+        <div class="department-title">法律学科
+          <span class="capacity">（定員150名）</span>
+        </div>
+        <div class="description">
+          硬派な法学教育を展開。宅建や行政書士などの資格取得、
+          法科大学院進学を目指す学生を支援します。
+        </div>
       </div>
-      <p class="description">
-        公務員試験対策講座が充実しており、資格取得に励む学生が多い学部です。
-        「中央」の名を冠する大学としての誇りを持ち、
-        法律と政策の両面から社会に貢献できる人材を育成します。
-      </p>
+
+      <div class="department">
+        <div class="department-title">地域政策学科
+          <span class="capacity">（定員60名）</span>
+        </div>
+        <div class="description">
+          都市計画や地方自治を学び、市役所・警察官・消防官など
+          行政の即戦力となる人材を多く輩出しています。
+        </div>
+      </div>
+    </div>
+
+    <div class="faculty">
+      <h2>教育学部</h2>
+
+      <div class="department">
+        <div class="department-title">初等教育学科
+          <span class="capacity">（定員100名）</span>
+        </div>
+        <div class="description">
+          小学校教諭・幼稚園教諭免許に対応。
+          神奈川県内の学校現場と連携した実習が大きな強みです。
+        </div>
+      </div>
     </div>
 
     <div class="faculty">
       <h2>人間社会学部</h2>
-      <div class="departments">
-        <span>社会学科</span>
-        <span>心理学科</span>
+
+      <div class="department">
+        <div class="department-title">社会学科
+          <span class="capacity">（定員120名）</span>
+        </div>
+        <div class="description">
+          現代社会の諸問題を多角的に分析。
+          マスコミや一般企業など多様な進路が広がります。
+        </div>
       </div>
-      <p class="description">
-        心理や福祉、地域社会に関心を持つ学生が集まる学部です。
-        湘南地域の福祉施設との連携を通じて、実践的な学びを重視しています。
-      </p>
+
+      <div class="department">
+        <div class="department-title">心理学科
+          <span class="capacity">（定員80名）</span>
+        </div>
+        <div class="description">
+          カウンセリングや行動心理を学び、
+          認定心理士などの資格取得に対応しています。
+        </div>
+      </div>
     </div>
 
     <div class="faculty">
       <h2>観光文化学部</h2>
-      <div class="departments">
-        <span>観光学科</span>
-        <span>地域交流学科</span>
+
+      <div class="department">
+        <div class="department-title">観光学科
+          <span class="capacity">（定員100名）</span>
+        </div>
+        <div class="description">
+          本学の看板学科。ホテル・航空・旅行業界への就職を目指し、
+          湘南・鎌倉の観光現場で実習を行います。
+        </div>
       </div>
-      <p class="description">
-        湘南という地域特性を生かした特色ある学部です。
-        江の島周辺の観光振興を実習の場とし、
-        観光を「文化」や「交流」として捉える学びを展開します。
-      </p>
+
+      <div class="department">
+        <div class="department-title">地域交流学科
+          <span class="capacity">（定員60名）</span>
+        </div>
+        <div class="description">
+          祭りや伝統文化、多文化共生をテーマに、
+          観光を通じた地域活性化を探究します。
+        </div>
+      </div>
     </div>
 
     <div class="faculty">
       <h2>生活環境計画学部</h2>
-      <div class="departments">
-        <span>住居学科</span>
-        <span>都市意匠学科</span>
+
+      <div class="department">
+        <div class="department-title">農学科
+          <span class="capacity">（定員70名）</span>
+        </div>
+        <div class="description">
+          湘南野菜の生産からブランド化までを研究。
+          実習農場でのフィールドワークを重視した実学の農学です。
+        </div>
       </div>
-      <p class="description">
-        海辺の住環境や景観を守る建築・都市デザインを学びます。
-        「デザイン」を「計画」や「意匠」として捉え、
-        湘南らしい暮らしと街づくりを考える学部です。
-      </p>
+
+      <div class="department">
+        <div class="department-title">生活環境計画学科
+          <span class="capacity">（定員50名）</span>
+        </div>
+        <div class="description">
+          二級建築士取得を目指し、海辺の景観や住環境に配慮した
+          建築デザインと都市意匠を学びます。
+        </div>
+      </div>
     </div>
 
   </main>
