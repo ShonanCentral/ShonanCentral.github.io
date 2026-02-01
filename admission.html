@@ -2,9 +2,13 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>入試情報 | 湘南中央大学</title>
+  <title>入試情報｜湘南中央大学</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: "Helvetica Neue", Arial, sans-serif;
@@ -13,52 +17,39 @@
     }
 
     a {
-      color: inherit;
+      color: #0b2a44;
       text-decoration: none;
     }
 
     /* ===== TOP BAR ===== */
     .top-bar {
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       padding: 16px 48px;
       background: #0b2a44;
       color: #ffffff;
       font-size: 14px;
     }
 
-    .top-bar a,
-    .top-bar a:visited,
-    .top-bar a:hover,
-    .top-bar a:active {
-      color: #ffffff;
-    }
-
     .top-left {
       display: flex;
       align-items: center;
+      gap: 16px;
       white-space: nowrap;
     }
 
     .logo {
       height: 56px;
-      margin-right: 14px;
-    }
-
-    .univ-line {
-      display: flex;
-      align-items: center;
     }
 
     .univ-name {
       font-weight: 600;
-      font-size: 15px;
-      margin-right: 18px;
+      margin-right: 12px;
     }
 
     .nav-item {
-      padding: 0 12px;
+      padding: 0 10px;
       cursor: pointer;
     }
 
@@ -72,12 +63,10 @@
 
     .top-right {
       display: flex;
-      align-items: center;
       gap: 18px;
-      white-space: nowrap;
     }
 
-    /* ===== PAGE HEADER ===== */
+    /* ===== HEADER ===== */
     .page-header {
       background: #f2f4f7;
       padding: 64px 48px;
@@ -86,31 +75,56 @@
     .page-header h1 {
       margin: 0;
       font-size: 32px;
-      font-weight: 600;
     }
 
     .page-header p {
       margin-top: 14px;
+      max-width: 900px;
       color: #555;
-      font-size: 15px;
       line-height: 1.8;
     }
 
     /* ===== CONTENT ===== */
     .content {
-      padding: 72px 48px;
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 0 auto;
+      padding: 72px 48px;
     }
 
-    .content h2 {
-      margin-top: 0;
-      font-size: 22px;
+    h2 {
+      margin-top: 60px;
+      font-size: 24px;
+      border-left: 6px solid #0b2a44;
+      padding-left: 12px;
     }
 
-    .content p {
+    h3 {
+      margin-top: 32px;
+      font-size: 18px;
+    }
+
+    ul {
+      margin-top: 12px;
       line-height: 1.8;
-      color: #444;
+    }
+
+    .info-box {
+      background: #fafafa;
+      border: 1px solid #ddd;
+      padding: 24px;
+      margin-top: 20px;
+    }
+
+    .news {
+      margin-top: 20px;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .exam-table {
+      margin-top: 20px;
+      line-height: 1.9;
+      font-size: 14px;
     }
 
     footer {
@@ -125,57 +139,109 @@
 
 <body>
 
-  <!-- TOP BAR -->
-  <div class="top-bar">
-    <div class="top-left">
-      <a href="index.html">
-        <img src="newemblem.png" alt="湘南中央大学 校章" class="logo">
-      </a>
-
-      <div class="univ-line">
-        <span class="univ-name">湘南中央大学</span>
-        <span class="nav-item">教育</span>
-        <span class="nav-item">研究</span>
-        <span class="nav-item">社会連携</span>
-        <a href="exam.html" class="nav-item">受験生</a>
-        <span class="nav-item">LINE公式</span>
-        <span class="nav-item">卒業生</span>
-        <span class="nav-item">保護者等</span>
-        <span class="nav-item">在学生・教職員</span>
-        <span class="nav-item">一般・連携</span>
-      </div>
-    </div>
-
-    <div class="top-right">
-      <span>ご寄付</span>
-      <span>アクセス</span>
-      <span>データ集</span>
-      <span>検索</span>
-      <span>Language</span>
-    </div>
+<!-- ===== TOP BAR ===== -->
+<div class="top-bar">
+  <div class="top-left">
+    <a href="index.html">
+      <img src="newemblem.png" class="logo" alt="湘南中央大学">
+    </a>
+    <span class="univ-name">湘南中央大学</span>
+    <span class="nav-item active">入試情報</span>
+    <a href="exam.html" class="nav-item">受験生</a>
+    <a href="faculty.html" class="nav-item">学部・学科</a>
   </div>
 
-  <!-- PAGE HEADER -->
-  <section class="page-header">
-    <h1>入試情報</h1>
-    <p>
-      湘南中央大学の入学者選抜に関する情報をご案内します。<br>
-      各選抜方式の詳細は、順次掲載予定です。
-    </p>
-  </section>
+  <div class="top-right">
+    <span>アクセス</span>
+    <span>検索</span>
+    <span>Language</span>
+  </div>
+</div>
 
-  <!-- CONTENT -->
-  <main class="content">
-    <h2>現在準備中です</h2>
-    <p>
-      入試日程、募集要項、出願方法などの詳細情報は、現在準備中です。<br>
-      公開まで今しばらくお待ちください。
-    </p>
-  </main>
+<!-- ===== HEADER ===== -->
+<section class="page-header">
+  <h1>入試情報（2026年度）</h1>
+  <p>
+    湘南中央大学の2026年度入学試験に関する最新情報を掲載しています。
+  </p>
+</section>
 
-  <footer>
-    © 湘南中央大学
-  </footer>
+<!-- ===== CONTENT ===== -->
+<main class="content">
+
+  <h2>オープンキャンパス開催案内（2026年度）</h2>
+
+  <div class="info-box">
+    <p><strong>開催日：</strong>2026年2月20日（金）・2月21日（土）</p>
+    <p><strong>会場：</strong>湘南中央大学 国際信州学院キャンパス</p>
+    <p><strong>開催時間：</strong>13:00 ～ 15:30</p>
+  </div>
+
+  <h3>主な内容</h3>
+  <ul>
+    <li>公開授業</li>
+    <li>学長講演</li>
+    <li>湘南中央大学 教育・研究成果展示</li>
+    <li>学部別ガイダンス</li>
+    <li>入学試験説明会</li>
+  </ul>
+
+  <p>※ 2月21日（土）は学園祭との同時開催を予定しています。</p>
+
+  <h2>インターネット出願について</h2>
+
+  <ul>
+    <li>出願は <strong>インターネット出願のみ</strong> となります。</li>
+    <li>出願登録は締切日の <strong>24時まで</strong> 可能です。</li>
+    <li>出願書類の郵送は <strong>消印有効</strong> とします。</li>
+  </ul>
+
+  <h2>入学試験に関する情報</h2>
+  <ul>
+    <li>各学部の過去問題</li>
+    <li>志願者数速報</li>
+    <li>入学試験 合否結果</li>
+  </ul>
+
+  <h2>お知らせ・入試最新情報</h2>
+
+  <div class="news">
+    <p>2026.07.22　8月20日・21日にオープンキャンパスを開催します。</p>
+    <p>2026.04.10　夏季オープンキャンパス日程を順次掲載します。</p>
+    <p>2026.01.26　学部個別配点方式・共通テスト併用方式 出願締切。</p>
+    <p>2026.01.24　受験票は1月25日より順次発送します。</p>
+  </div>
+
+  <h2>2026年度 入学試験 出題範囲・試験時間</h2>
+
+  <div class="exam-table">
+    <p><strong>LAW｜法学部</strong><br>
+    国語60分／英語45分／世界史75分／倫理100分</p>
+
+    <p><strong>BUS｜経営学部</strong><br>
+    数学90分／英語90分／小論文60分</p>
+
+    <p><strong>ECO｜経済学部</strong><br>
+    数学120分／英語100分／地理150分</p>
+
+    <p><strong>EDU｜教育学部</strong><br>
+    国語90分／英語90分／教育基礎60分</p>
+
+    <p><strong>HUM｜人間社会学部</strong><br>
+    国語90分／英語90分／倫理・社会90分</p>
+
+    <p><strong>TOC｜観光文化学部</strong><br>
+    数学120分／実技20分</p>
+
+    <p><strong>LEP｜生活環境計画学部</strong><br>
+    数学120分／英語90分／小論文60分</p>
+  </div>
+
+</main>
+
+<footer>
+  © 湘南中央大学
+</footer>
 
 </body>
 </html>
