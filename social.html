@@ -13,7 +13,7 @@
 
     a { color: inherit; text-decoration: none; }
 
-    /* ===== TOP BAR (最新版を統合) ===== */
+    /* ===== TOP BAR ===== */
     .top-bar {
       display: flex;
       align-items: center;
@@ -26,15 +26,15 @@
     .top-bar a { color: #ffffff; }
 
     .top-left { display: flex; align-items: center; white-space: nowrap; }
-    .logo { height: 56px; margin-right: 14px; }
+    .logo { height: 56px; margin-right: 14px; border: none; vertical-align: middle; }
     .univ-line { display: flex; align-items: center; }
-    .univ-name { font-weight: 600; font-size: 15px; margin-right: 18px; }
+    .univ-name { font-weight: 600; font-size: 15px; margin-right: 18px; cursor: pointer; }
     .nav-item { padding: 0 12px; cursor: pointer; }
     .nav-item:hover { text-decoration: underline; }
 
     .top-right { display: flex; align-items: center; gap: 18px; white-space: nowrap; }
 
-    /* ===== SOCIAL CONTENT ===== */
+    /* ===== HERO SECTION ===== */
     .hero {
       position: relative;
       height: 300px;
@@ -50,6 +50,7 @@
 
     .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
 
+    /* ===== SERVICE CARDS ===== */
     .services {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -63,6 +64,8 @@
       border: 1px solid #eee;
       border-radius: 8px;
       transition: all 0.3s ease;
+      height: 100%;
+      box-sizing: border-box;
     }
     .service-card:hover {
       transform: translateY(-5px);
@@ -76,9 +79,12 @@
 
   <div class="top-bar">
     <div class="top-left">
-      <img src="newemblem.png" alt="湘南中央大学 校章" class="logo">
+      <a href="index.html">
+        <img src="newemblem.png" alt="湘南中央大学 校章" class="logo">
+      </a>
       <div class="univ-line">
-        <span class="univ-name">湘南中央大学</span>
+        <a href="index.html" class="univ-name">湘南中央大学</a>
+        
         <a href="education.html" class="nav-item">教育</a>
         <a href="research.html" class="nav-item">研究</a>
         <a href="social.html" class="nav-item">社会連携</a>
@@ -94,8 +100,8 @@
       <a href="donation.html" class="right-item">ご寄付</a>
       <a href="access.html" class="right-item">アクセス</a>
       <a href="data.html" class="right-item">データ集</a>
-      <span class="right-item">検索</span>
-      <span class="right-item">Language</span>
+      <span class="right-item" style="cursor: pointer;">検索</span>
+      <span class="right-item" style="cursor: pointer;">Language</span>
     </div>
   </div>
 
@@ -108,17 +114,19 @@
 
   <div class="container">
     <div class="services">
-      <a href="sangaku.html" style="text-decoration: none; color: inherit;">
+      <a href="sangaku.html">
         <div class="service-card">
           <h3>産学官連携</h3>
           <p>共同研究・受託研究・技術相談など、企業・行政との連携窓口です。</p>
         </div>
       </a>
-      <div class="service-card">
+      
+      <div class="service-card" style="cursor: pointer;">
         <h3>生涯学習・公開講座</h3>
         <p>地域住民の皆様に向けた学びの場を提供します。</p>
       </div>
-      <div class="service-card">
+      
+      <div class="service-card" style="cursor: pointer;">
         <h3>地域貢献</h3>
         <p>自治体との包括連携協定に基づき、地域課題の解決に取り組みます。</p>
       </div>
