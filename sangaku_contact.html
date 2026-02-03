@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>産官学連携 相談窓口 | 湘南中央大学</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif; color: #333; line-height: 1.6; background: #fdfdfd; }
+    
+    .top-bar { display: flex; align-items: center; justify-content: space-between; padding: 16px 48px; background: #0b2a44; color: #fff; font-size: 14px; }
+    .top-bar a { color: #fff; text-decoration: none; margin-left: 15px; }
+
+    .page-header { background: #f8f9fa; padding: 40px 48px; border-bottom: 1px solid #ddd; text-align: center; }
+    .page-header h1 { margin: 0; font-size: 24px; color: #0b2a44; }
+
+    .container { max-width: 800px; margin: 40px auto; padding: 0 20px 100px; }
+
+    .contact-form { background: #fff; padding: 40px; border: 1px solid #e0e0e0; border-radius: 8px; }
+    .form-group { margin-bottom: 25px; }
+    .form-group label { display: block; font-weight: bold; margin-bottom: 8px; font-size: 15px; }
+    .form-group input, .form-group textarea, .form-group select { 
+      width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; 
+    }
+    
+    .required { color: #c62828; font-size: 12px; margin-left: 8px; vertical-align: middle; }
+
+    .btn-submit { 
+      display: block; width: 200px; margin: 40px auto 0; padding: 15px; 
+      background: #0b2a44; color: #fff; border: none; border-radius: 4px; 
+      font-size: 16px; font-weight: bold; cursor: pointer; transition: 0.3s;
+    }
+    .btn-submit:hover { background: #1a508b; }
+
+    footer { text-align: center; padding: 40px; font-size: 11px; color: #aaa; }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div><b>湘南中央大学 産官学連携推進窓口</b></div>
+  <nav>
+    <a href="index.html">大学TOP</a>
+    <a href="sangaku.html">産官学連携TOP</a>
+  </nav>
+</div>
+
+<header class="page-header">
+  <h1>お問い合わせ・相談フォーム</h1>
+</header>
+
+<main class="container">
+  <div class="contact-form">
+    <p style="font-size: 14px; color: #666; margin-bottom: 30px;">
+      共同研究、技術相談、自治体連携等に関するお問い合わせは、以下のフォームよりお願いいたします。担当者より折り返しご連絡いたします。
+    </p>
+
+    <div class="form-group">
+      <label>お問い合わせ種別<span class="required">[必須]</span></label>
+      <select>
+        <option value="">選択してください</option>
+        <option value="joint">共同研究・受託研究について</option>
+        <option value="tech">技術相談・学術指導について</option>
+        <option value="local">自治体連携について</option>
+        <option value="other">その他</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>貴社名・団体名<span class="required">[必須]</span></label>
+      <input type="text" placeholder="例：株式会社湘南テクノロジー">
+    </div>
+
+    <div class="form-group">
+      <label>お名前<span class="required">[必須]</span></label>
+      <input type="text" placeholder="例：田中 太郎">
+    </div>
+
+    <div class="form-group">
+      <label>メールアドレス<span class="required">[必須]</span></label>
+      <input type="email" placeholder="example@shonan-cu.ac.jp">
+    </div>
+
+    <div class="form-group">
+      <label>お問い合わせ内容<span class="required">[必須]</span></label>
+      <textarea rows="6" placeholder="具体的な相談内容をご記入ください"></textarea>
+    </div>
+
+    <button type="button" class="btn-submit" onclick="alert('このページはサンプルです。送信機能は実装されていません。')">内容を確認する</button>
+  </div>
+</main>
+
+<footer>
+  &copy; 2026 Shonan Chuo University. All Rights Reserved.
+</footer>
+
+</body>
+</html>

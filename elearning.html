@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>研究倫理eラーニング受講 | 湘南中央大学</title>
+  <script>
+    if (localStorage.getItem('isLoggedIn') !== 'true') {
+      alert('認証セッションがありません。ログインしてください。');
+      window.location.href = 'login.html?from=elearning.html';
+    }
+  </script>
+  <style>
+    :root { --primary-color: #0b2a44; --bg-color: #f8f9fa; }
+    body { margin: 0; font-family: sans-serif; background: var(--bg-color); color: #333; }
+    header { background: var(--primary-color); color: white; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; }
+    
+    .container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+    .card { background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); padding: 30px; margin-bottom: 20px; }
+
+    /* メニュー画面のスタイル */
+    .course-item { 
+      display: flex; justify-content: space-between; align-items: center; 
+      padding: 20px; border: 1px solid #eee; border-radius: 8px; margin-bottom: 15px;
+    }
+    .course-info h3 { margin: 0 0 5px; font-size: 16px; color: var(--primary-color); }
+    .course-info p { margin: 0; font-size: 13px; color: #666; }
+    
+    .status-tag { font-size: 11px; font-weight: bold; padding: 3px 8px; border-radius: 4px; margin-right: 10px; }
+    .status-yet { background: #eee; color: #777; }
+    .status-done { background: #e8f5e9; color: #2e7d32; }
+
+    .btn-action { 
+      background: var(--primary-color); color: white; border: none; padding: 10px 20px; 
+      border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 13px;
+    }
+    .btn-action:hover { opacity: 0.8; }
+
+    /* 受講画面のスタイル（初期は非表示） */
+    #study-view { display: none; }
+    .quiz-area { background: #f9f9f9; padding: 25px; border-radius: 8px; margin: 20px 0; border-left: 5px solid var(--primary-color); }
+    .option { display: block; margin: 12px 0; padding: 12px; background: #fff; border: 1px solid #ddd; border-radius: 6px; cursor: pointer; }
+
+    .back-link { display: inline-block; margin-top: 20px; color: #666; font-size: 13px; text-decoration: none; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+<header>
+  <strong>研究倫理 eラーニング受講ポータル</strong>
+  <div id="userDisp" style="font-size: 14px;"></div>
+</header>
+
+<div class="container">
+  
+  <div id="menu-view">
+    <div class="card">
+      <h2 style="margin-top:0;">受講コース選択</h2>
+      <p style="font-size: 14px; color: #666;">必要な項目を選択して受講を開始してください。</p>
+      
+      <div id="course-list">
+        </div>
+
+      <div style="text-align: center; margin-top: 20px;">
+        <a href="ethics.html" class="back-link">研究倫理トップへ戻る</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="study-view">
+    <div class="card">
+      <h2 id="current-title">講習タイトル</h2>
+      <p id="current-desc">講習の解説テキストがここに入ります。</p>
+      
+      <div class="quiz-area">
+        <p><strong id="current-q">問題文</strong></p>
+        <div id="options-area">
+          </div>
+      </div>
+
+      <button class="btn-action" onclick="checkAnswer()" style="width: 100%; padding: 15px;">回答を提出する</button>
+      <br>
+      <span class="back-link" onclick="showMenu()">← メニューに戻る（中断）</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // 講習データ
+  const courseData = {
+    fund: { title: "公的研究費の適切な利用", desc: "研究費の不正使用（預け金、カラ出張など）の防止について学びます。", q: "研究費で購入した備品を、一時的に私的な活動に利用することは認められますか？", options: ["はい", "いいえ"], correct: 1 },
+    human: { title: "人を対象とする研究倫理", desc: "インフォームド・コンセントと個人情報の保護について学びます。", q: "研究対象者から得た同意は、いつでも対象者の意思で撤回可能であるべきですか？", options: ["はい", "いいえ"], correct: 0 },
+    animal: { title: "動物実験の適正な実施", desc: "3Rの原則（代替、削減、洗練）について学びます。", q: "できる限り麻酔薬を用い、実験動物の苦痛を軽減することを何と呼びますか？", options: ["Reduction（削減）", "Refinement（洗練・苦痛軽減）"], correct: 1 }
+  };
+
+  let activeCourseId = null;
+
+  window.onload = function() {
+    document.getElementById('userDisp').innerText = localStorage.getItem('currentUserName') + " 様";
+    showMenu();
+  };
+
+  // メニュー画面を表示
+  function showMenu() {
+    document.getElementById('menu-view').style.display = 'block';
+    document.getElementById('study-view').style.display = 'none';
+    
+    const list = document.getElementById('course-list');
+    list.innerHTML = '';
+
+    Object.keys(courseData).forEach(id => {
+      const done = localStorage.getItem('isDone_' + id) === 'true';
+      const item = document.createElement('div');
+      item.className = 'course-item';
+      item.innerHTML = `
+        <div class="course-info">
+          <span class="status-tag ${done ? 'status-done' : 'status-yet'}">${done ? '受講済' : '未受講'}</span>
+          <h3>${courseData[id].title}</h3>
+          <p>${courseData[id].desc}</p>
+        </div>
+        <button class="btn-action" onclick="startCourse('${id}')">${done ? '再受講' : '受講する'}</button>
+      `;
+      list.appendChild(item);
+    });
+  }
+
+  // 受講画面を開始
+  function startCourse(id) {
+    activeCourseId = id;
+    const data = courseData[id];
+    
+    document.getElementById('menu-view').style.display = 'none';
+    document.getElementById('study-view').style.display = 'block';
+    
+    document.getElementById('current-title').innerText = data.title;
+    document.getElementById('current-desc').innerText = data.desc;
+    document.getElementById('current-q').innerText = "問：" + data.q;
+    
+    const optArea = document.getElementById('options-area');
+    optArea.innerHTML = '';
+    data.options.forEach((opt, index) => {
+      optArea.innerHTML += `
+        <label class="option">
+          <input type="radio" name="quiz" value="${index}"> ${opt}
+        </label>
+      `;
+    });
+  }
+
+  // 回答チェック
+  function checkAnswer() {
+    const selected = document.querySelector('input[name="quiz"]:checked');
+    if (!selected) { alert("回答を選択してください。"); return; }
+
+    if (parseInt(selected.value) === courseData[activeCourseId].correct) {
+      alert("正解です！受講を完了しました。");
+      localStorage.setItem('isDone_' + activeCourseId, 'true');
+      
+      // 全項目完了チェック
+      const allDone = Object.keys(courseData).every(id => localStorage.getItem('isDone_' + id) === 'true');
+      if(allDone) localStorage.setItem('isEthicsDone', 'true');
+      
+      showMenu();
+    } else {
+      alert("不正解です。もう一度解説を読んで考えてください。");
+    }
+  }
+</script>
+
+</body>
+</html>

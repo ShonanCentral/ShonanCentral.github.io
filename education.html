@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>教育｜湘南中央大学</title>
+
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Helvetica Neue", Arial, sans-serif; background: #ffffff; color: #111; }
+    
+    /* リンクの基本色設定 */
+    a { color: inherit; text-decoration: none; }
+
+    /* ===== TOP BAR (フルリンク対応) ===== */
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 48px;
+      background: #0b2a44;
+      color: #ffffff;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    /* トップバー内のリンクを白に固定 */
+    .top-bar a {
+      color: #ffffff !important;
+    }
+
+    .top-left { display: flex; align-items: center; }
+    .logo { height: 56px; margin-right: 14px; }
+    .univ-line { display: flex; align-items: center; }
+    
+    /* 大学名もリンクに */
+    .univ-name { font-weight: 600; font-size: 15px; margin-right: 18px; }
+
+    /* ナビゲーション項目 */
+    .nav-item { padding: 0 12px; cursor: pointer; display: inline-block; }
+    .nav-item:hover { text-decoration: underline !important; }
+    
+    /* 現在のページ（教育）を強調 */
+    .nav-item.active { text-decoration: underline !important; font-weight: bold; }
+
+    .top-right { display: flex; align-items: center; gap: 18px; }
+    .right-item:hover { text-decoration: underline !important; }
+
+    /* ===== PAGE HEADER ===== */
+    .page-header { background: #f2f4f7; padding: 64px 48px; }
+    .page-header h1 { margin: 0; font-size: 32px; font-weight: 600; }
+    .page-header p { margin-top: 14px; color: #555; font-size: 15px; line-height: 1.8; max-width: 900px; }
+
+    /* ===== CONTENT ===== */
+    .content { max-width: 1100px; margin: 0 auto; padding: 72px 48px; }
+    .section-intro { margin-bottom: 60px; }
+    h2 { margin-top: 64px; font-size: 24px; border-left: 6px solid #0b2a44; padding-left: 12px; font-weight: 600; }
+    p { margin-top: 16px; font-size: 15px; line-height: 1.9; max-width: 900px; color: #333; }
+
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 32px; }
+    .feature-card { background: #f9fafb; border: 1px solid #e5e7eb; padding: 32px; border-radius: 8px; }
+    .feature-card h3 { margin-top: 0; font-size: 18px; color: #0b2a44; border-bottom: 2px solid #0b2a44; display: inline-block; margin-bottom: 16px; }
+    .feature-card p { font-size: 14px; margin-top: 0; }
+
+    footer { margin-top: 80px; padding: 48px; font-size: 12px; color: #777; border-top: 1px solid #ddd; text-align: center; }
+  </style>
+</head>
+
+<body>
+
+<div class="top-bar">
+  <div class="top-left">
+    <a href="index.html">
+      <img src="newemblem.png" alt="湘南中央大学 校章" class="logo">
+    </a>
+
+    <div class="univ-line">
+      <a href="index.html" class="univ-name">湘南中央大学</a>
+      <a href="education.html" class="nav-item active">教育</a>
+      <a href="research.html" class="nav-item">研究</a>
+      <a href="social.html" class="nav-item">社会連携</a>
+      <a href="exam.html" class="nav-item">受験生</a>
+      <a href="line.html" class="nav-item">LINE公式</a>
+      <a href="alumni.html" class="nav-item">卒業生</a>
+      <a href="parents.html" class="nav-item">保護者等</a>
+      <a href="campus-life.html" class="nav-item">在学生・教職員</a>
+      <a href="general.html" class="nav-item">一般・連携</a>
+    </div>
+  </div>
+
+  <div class="top-right">
+    <a href="donation.html" class="right-item">ご寄付</a>
+    <a href="access.html" class="right-item">アクセス</a>
+    <a href="data.html" class="right-item">データ集</a>
+    <a href="search.html" class="right-item">検索</a>
+    <a href="lang.html" class="right-item">Language</a>
+  </div>
+</div>
+
+<section class="page-header">
+  <h1>教育</h1>
+  <p>湘南中央大学は、地域に根ざした実学教育を通じて、社会で主体的に行動できる人材の育成を目指しています。</p>
+</section>
+
+<main class="content">
+  <div class="section-intro">
+    <h2>1．教育理念・方針</h2>
+    <p>本学は「学問を社会につなげる」ことを基本理念とし、理論と実践を往復する学びを重視しています。</p>
+  </div>
+
+  <h2>2．教育の特色（3つの柱）</h2>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <h3>少人数教育・実学重視</h3>
+      <p>教員と学生の距離が近い環境で、演習・実習を多く取り入れ、即戦力となる知識の習得を目指します。</p>
+    </div>
+    <div class="feature-card">
+      <h3>キャリア教育・資格支援</h3>
+      <p>1年次から段階的な支援を行い、各学部の特性に応じた資格対策講座も充実しています。</p>
+    </div>
+    <div class="feature-card">
+      <h3>地域連携・フィールドワーク</h3>
+      <p>湘南地域の現場で学ぶ実習を積極的に実施。地域課題に向き合う経験を通じて実践力を育成します。</p>
+    </div>
+  </div>
+
+  <h2>3．学修サポート体制</h2>
+  <p>学習支援センターや最新のラーニングコモンズを備え、学生の学びを多面的にサポートしています。</p>
+</main>
+
+<footer>
+  <p>&copy; 2026 Shonan Chuo University. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

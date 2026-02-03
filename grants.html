@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>研究費・助成金情報 | 湘南中央大学</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif; color: #333; line-height: 1.6; background: #fdfdfd; }
+    
+    /* 共通ヘッダー */
+    .top-bar { display: flex; align-items: center; justify-content: space-between; padding: 16px 48px; background: #0b2a44; color: #fff; font-size: 14px; }
+    .top-bar a { color: #fff; text-decoration: none; margin-left: 15px; }
+
+    /* ページヘッダー */
+    .page-header { background: #f0f4f8; padding: 50px 48px; border-bottom: 4px solid #b8860b; text-align: center; }
+    .page-header h1 { margin: 0; font-size: 28px; color: #0b2a44; letter-spacing: 0.1em; }
+    .page-header p { margin: 10px 0 0; color: #666; font-size: 16px; }
+
+    .container { max-width: 900px; margin: 40px auto; padding: 0 20px 100px; }
+
+    /* カテゴリラベル */
+    .grant-category { font-size: 14px; font-weight: bold; color: #b8860b; margin: 40px 0 15px; display: flex; align-items: center; }
+    .grant-category::after { content: ""; flex: 1; height: 1px; background: #ddd; margin-left: 15px; }
+
+    /* 研究費カード */
+    .grant-card { display: flex; border: 1px solid #e0e0e0; border-radius: 12px; margin-bottom: 25px; overflow: hidden; background: #fff; transition: 0.3s; }
+    .grant-card:hover { transform: translateY(-3px); box-shadow: 0 8px 15px rgba(0,0,0,0.08); }
+    
+    .grant-side { width: 220px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: bold; font-size: 18px; text-align: center; padding: 20px; background: #b8860b; }
+    .bg-kaken { background: #1e3a5f; } /* 科研費っぽい紺色 */
+
+    .grant-content { flex: 1; padding: 25px 30px; }
+    .grant-content h2 { margin: 0 0 10px; font-size: 20px; color: #0b2a44; }
+    .grant-content p { font-size: 14.5px; color: #555; margin-bottom: 15px; }
+    
+    .link-list { list-style: none; padding: 0; margin: 0; }
+    .link-list li { margin-bottom: 5px; }
+    .link-list a { color: #b8860b; font-size: 14px; text-decoration: none; font-weight: bold; }
+    .link-list a:hover { text-decoration: underline; }
+
+    footer { text-align: center; padding: 40px; font-size: 11px; color: #aaa; border-top: 1px solid #eee; }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div><b>湘南中央大学 研究支援課</b></div>
+  <nav>
+    <a href="index.html">大学TOP</a>
+    <a href="research.html">研究ポータル</a>
+  </nav>
+</div>
+
+<header class="page-header">
+  <h1>GRANTS & FUNDING</h1>
+  <p>独創的な研究を支える、多様な資金配分制度。</p>
+</header>
+
+<main class="container">
+
+  <div class="grant-category">学外資金・公募情報</div>
+
+  <div class="grant-card">
+    <div class="grant-side bg-kaken">KAKENHI</div>
+    <div class="grant-content">
+      <h2>科学研究費助成事業（科研費）</h2>
+      <p>日本学術振興会による公的助成制度です。本学では採択率向上に向けた申請書ブラッシュアップ支援や、若手研究者向けのスタートアップ支援を実施しています。</p>
+      <ul class="link-list">
+        <li><a href="grant_internal.html">▶ 今年度の募集要項について（学内専用）</a></li>
+        <li><a href="index.html">▶ 本学の採択実績一覧</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="grant-card">
+    <div class="grant-side">External<br>Funds</div>
+    <div class="grant-content">
+      <h2>公募型研究資金・民間助成金</h2>
+      <p>各省庁（JST, AMED等）や民間財団が実施する公募情報を集約しています。地域連携に資する助成金や、国際共同研究への支援金など、幅広く紹介します。</p>
+      <ul class="link-list">
+        <li><a href="grant_internal.html">▶ 現在募集中の助成金カレンダー</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="grant-category">学内助成・奨励金</div>
+
+  <div class="grant-card">
+    <div class="grant-side" style="background: #5a6b78;">Internal<br>Grants</div>
+    <div class="grant-content">
+      <h2>湘南中央大学 特別研究費</h2>
+      <p>本学独自の学術振興制度です。新進気鋭の若手研究者や、学部を跨いだ共同プロジェクトに対し、機動的な資金配分を行い、新たな知の創造を後押しします。</p>
+      <ul class="link-list">
+        <li><a href="grant_internal.html">▶ 学内助成制度 規定・申請書類</a></li>
+      </ul>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  &copy; 2026 Shonan Chuo University. All Rights Reserved.
+</footer>
+
+</body>
+</html>

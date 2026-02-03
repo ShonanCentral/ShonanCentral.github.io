@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>受験生の方へ | 湘南中央大学</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background: #ffffff;
+      color: #111;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ===== TOP BAR (フルリンク対応版) ===== */
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 48px;
+      background: #0b2a44;
+      color: #ffffff;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    /* リンク色を白に固定 */
+    .top-bar a {
+      color: #ffffff !important;
+      text-decoration: none;
+    }
+
+    .top-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      height: 56px;
+      margin-right: 14px;
+    }
+
+    .univ-line {
+      display: flex;
+      align-items: center;
+    }
+
+    .univ-name {
+      font-weight: 600;
+      font-size: 15px;
+      margin-right: 18px;
+    }
+
+    /* ナビ項目をaタグとして共通設定 */
+    .nav-item {
+      padding: 0 12px;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .nav-item:hover {
+      text-decoration: underline !important;
+    }
+
+    .nav-item.active {
+      text-decoration: underline !important;
+      font-weight: bold;
+    }
+
+    .top-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    /* ===== PAGE HEADER ===== */
+    .page-header {
+      background: #f2f4f7;
+      padding: 64px 48px;
+    }
+
+    .page-header h1 {
+      margin: 0;
+      font-size: 32px;
+      font-weight: 600;
+    }
+
+    .page-header p {
+      margin-top: 14px;
+      color: #555;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    /* ===== CARD SECTION ===== */
+    .card-section {
+      padding: 72px 48px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .card {
+      border: 1px solid #e0e0e0;
+      padding: 32px;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+      background: #ffffff;
+      display: block; /* aタグをカード化 */
+    }
+
+    .card:hover {
+      box-shadow: 0 10px 24px rgba(0,0,0,0.1);
+      transform: translateY(-4px);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 20px;
+      color: #0b2a44;
+    }
+
+    .card p {
+      margin-top: 12px;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    .card span {
+      display: inline-block;
+      margin-top: 18px;
+      font-size: 14px;
+      color: #0b2a44;
+      font-weight: 600;
+    }
+
+    /* ===== MESSAGE ===== */
+    .message {
+      padding: 72px 48px;
+      background: #fafafa;
+      text-align: center;
+    }
+
+    .message p {
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.9;
+      color: #444;
+      font-size: 15px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      margin-top: 80px;
+      padding: 48px;
+      font-size: 12px;
+      color: #777;
+      border-top: 1px solid #ddd;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-bar">
+    <div class="top-left">
+      <a href="index.html">
+        <img src="newemblem.png" alt="湘南中央大学 校章" class="logo">
+      </a>
+
+      <div class="univ-line">
+        <a href="index.html" class="univ-name">湘南中央大学</a>
+        <a href="education.html" class="nav-item">教育</a>
+        <a href="research.html" class="nav-item">研究</a>
+        <a href="social.html" class="nav-item">社会連携</a>
+        <a href="exam.html" class="nav-item active">受験生</a>
+        <a href="line.html" class="nav-item">LINE公式</a>
+        <a href="alumni.html" class="nav-item">卒業生</a>
+        <a href="parents.html" class="nav-item">保護者等</a>
+        <a href="campus-life.html" class="nav-item">在学生・教職員</a>
+        <a href="general.html" class="nav-item">一般・連携</a>
+      </div>
+    </div>
+
+    <div class="top-right">
+      <a href="donation.html" class="right-item">ご寄付</a>
+      <a href="access.html" class="right-item">アクセス</a>
+      <a href="data.html" class="right-item">データ集</a>
+      <a href="search.html" class="right-item">検索</a>
+      <a href="lang.html" class="right-item">Language</a>
+    </div>
+  </div>
+
+  <section class="page-header">
+    <h1>受験生の方へ</h1>
+    <p>
+      湘南中央大学では、湘南という地域性を生かした学びを通して、<br>
+      社会とつながり、世界へ羽ばたく力を育てています。
+    </p>
+  </section>
+
+  <section class="card-section">
+    <div class="card-grid">
+
+      <a href="faculty.html" class="card">
+        <h2>学部・学科</h2>
+        <p>
+          湘南中央大学の学部・学科の特徴や、学びの内容についてご紹介します。
+        </p>
+        <span>詳しく見る →</span>
+      </a>
+
+      <a href="admission.html" class="card">
+        <h2>入試情報</h2>
+        <p>
+          一般選抜、総合型選抜など、各種入試制度や日程についてご案内します。
+        </p>
+        <span>詳しく見る →</span>
+      </a>
+
+      <a href="open-campus.html" class="card">
+        <h2>オープンキャンパス</h2>
+        <p>
+          キャンパスの雰囲気を実際に体験できるイベント情報を掲載しています。
+        </p>
+        <span>詳しく見る →</span>
+      </a>
+
+    </div>
+  </section>
+
+  <section class="message">
+    <p>
+      進路を考えることは、自分自身と向き合う大切な時間です。<br>
+      湘南中央大学では、一人ひとりの可能性を大切にし、
+      学びを通して未来へ踏み出す皆さんを応援しています。
+    </p>
+  </section>
+
+  <footer>
+    &copy; 2026 Shonan Chuo University. All Rights Reserved.
+  </footer>
+
+</body>
+</html>

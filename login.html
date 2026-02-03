@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>学内ポータル ログイン | 湘南中央大学</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: sans-serif; background: #f0f2f5; display: flex; align-items: center; justify-content: center; height: 100vh; }
+    .login-container { background: #fff; width: 400px; padding: 40px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); border-top: 5px solid #0b2a44; text-align: center; }
+    .logo h1 { font-size: 20px; color: #0b2a44; margin: 0; }
+    .logo p { font-size: 12px; color: #888; margin: 5px 0 25px; font-weight: bold; }
+    .form-group { margin-bottom: 20px; text-align: left; }
+    .form-group label { display: block; font-size: 13px; font-weight: bold; margin-bottom: 8px; color: #555; }
+    .form-group input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 16px; background: #fafafa; }
+    .btn-login { width: 100%; padding: 14px; background: #0b2a44; color: #fff; border: none; border-radius: 4px; font-size: 16px; font-weight: bold; cursor: pointer; }
+    
+    #status-msg { margin-bottom: 15px; padding: 10px; border-radius: 4px; font-size: 14px; display: none; }
+    .error { background: #ffebee; color: #c62828; display: block !important; }
+    .success { background: #e8f5e9; color: #2e7d32; display: block !important; }
+
+    .links-area {
+      margin-top: 25px;
+      padding-top: 15px;
+      border-top: 1px solid #eee;
+      font-size: 13px;
+      text-align: left;
+      line-height: 2;
+    }
+    .links-area a {
+      color: #1a508b;
+      text-decoration: none;
+      display: block;
+    }
+    .links-area a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<div class="login-container">
+  <div class="logo">
+    <h1>SHONAN CENTRAL UNIVERSITY</h1>
+    <p>湘南中央大学 共通認証システム</p>
+  </div>
+
+  <div id="status-msg"></div>
+
+  <form id="loginForm">
+    <div class="form-group">
+      <label>学内ID（登録ID / 臨時ID / admin）</label>
+      <input type="text" id="userId" placeholder="Username" required>
+    </div>
+    <div class="form-group">
+      <label>パスワード</label>
+      <input type="password" id="password" placeholder="Password" required>
+    </div>
+    <button type="submit" id="submitBtn" class="btn-login">ログイン</button>
+  </form>
+
+  <div class="links-area">
+    <a href="signup.html">▶ はじめての方：アカウント新規登録</a>
+    <a href="it_service_id.html">▶ 学外の方：臨時IDの発行</a>
+  </div>
+</div>
+
+<script>
+  document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const inputId = document.getElementById('userId').value.trim();
+    const inputPw = document.getElementById('password').value.trim();
+    const msgArea = document.getElementById('status-msg');
+    
+    // 複数ユーザー対応版のLocalStorage読み込み
+    const users = JSON.parse(localStorage.getItem('scu_users')) || [];
+    const tempId = localStorage.getItem('tempID');
+
+    // 判定ロジック
+    const foundUser = users.find(u => u.id === inputId && u.pw === inputPw);
+    const isGuest = (tempId && inputId === tempId && inputPw === 'SCU-2026');
+    const isAdmin = (inputId === 'admin' && inputPw === 'admin');
+
+    if (foundUser || isGuest || isAdmin) {
+      localStorage.setItem('isLoggedIn', 'true');
+      
+      let displayName = "ゲスト";
+      if(foundUser) displayName = foundUser.name;
+      if(isAdmin) displayName = "システム管理者";
+      localStorage.setItem('currentUserName', displayName);
+
+      msgArea.innerText = "認証成功！転送します...";
+      msgArea.className = "success";
+      document.getElementById('submitBtn').disabled = true;
+
+      // URLパラメータ（?from=...）をsuccess.htmlに引き継ぐ
+      const currentParams = window.location.search;
+
+      setTimeout(function() {
+        // パラメータを付けた状態でsuccess.htmlへ移動
+        window.location.replace('success.html' + currentParams);
+      }, 800);
+
+    } else {
+      msgArea.innerText = "IDまたはパスワードが違います。";
+      msgArea.className = "error";
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>社会連携・産学連携 | 湘南中央大学</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif;
+      background: #ffffff;
+      line-height: 1.8;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ===== TOP BAR (最新版を統合) ===== */
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 48px;
+      background: #0b2a44;
+      color: #ffffff;
+      font-size: 14px;
+    }
+    .top-bar a { color: #ffffff; }
+
+    .top-left { display: flex; align-items: center; white-space: nowrap; }
+    .logo { height: 56px; margin-right: 14px; }
+    .univ-line { display: flex; align-items: center; }
+    .univ-name { font-weight: 600; font-size: 15px; margin-right: 18px; }
+    .nav-item { padding: 0 12px; cursor: pointer; }
+    .nav-item:hover { text-decoration: underline; }
+
+    .top-right { display: flex; align-items: center; gap: 18px; white-space: nowrap; }
+
+    /* ===== SOCIAL CONTENT ===== */
+    .hero {
+      position: relative;
+      height: 300px;
+      background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+    }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+
+    .service-card {
+      padding: 40px 20px;
+      text-align: center;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      border-color: #d4af37;
+    }
+    .service-card h3 { color: #0b2a44; margin-top: 0; }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="top-left">
+      <img src="newemblem.png" alt="湘南中央大学 校章" class="logo">
+      <div class="univ-line">
+        <span class="univ-name">湘南中央大学</span>
+        <a href="education.html" class="nav-item">教育</a>
+        <a href="research.html" class="nav-item">研究</a>
+        <a href="social.html" class="nav-item">社会連携</a>
+        <a href="exam.html" class="nav-item">受験生</a>
+        <a href="line.html" class="nav-item">LINE公式</a>
+        <a href="alumni.html" class="nav-item">卒業生</a>
+        <a href="parents.html" class="nav-item">保護者等</a>
+        <a href="campus_life.html" class="nav-item">在学生・教職員</a>
+        <a href="public.html" class="nav-item">一般・連携</a>
+      </div>
+    </div>
+    <div class="top-right">
+      <a href="donation.html" class="right-item">ご寄付</a>
+      <a href="access.html" class="right-item">アクセス</a>
+      <a href="data.html" class="right-item">データ集</a>
+      <span class="right-item">検索</span>
+      <span class="right-item">Language</span>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div>
+      <h1 style="font-size: 32px; margin: 0;">社会連携・地域貢献</h1>
+      <p style="letter-spacing: 0.1em;">Social Cooperation & Regional Contribution</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="services">
+      <a href="sangaku.html" style="text-decoration: none; color: inherit;">
+        <div class="service-card">
+          <h3>産学官連携</h3>
+          <p>共同研究・受託研究・技術相談など、企業・行政との連携窓口です。</p>
+        </div>
+      </a>
+      <div class="service-card">
+        <h3>生涯学習・公開講座</h3>
+        <p>地域住民の皆様に向けた学びの場を提供します。</p>
+      </div>
+      <div class="service-card">
+        <h3>地域貢献</h3>
+        <p>自治体との包括連携協定に基づき、地域課題の解決に取り組みます。</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

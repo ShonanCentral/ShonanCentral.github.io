@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>研究者データベース｜湘南中央大学</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif; background: #fff; color: #333; line-height: 1.6; }
+    
+    /* ヘッダー・ナビ */
+    .top-bar { display: flex; align-items: center; justify-content: space-between; padding: 16px 48px; background: #0b2a44; color: #fff; }
+    .top-bar a { color: #fff; text-decoration: none; font-size: 14px; }
+
+    /* 検索セクション */
+    .search-header { background: #f4f7f9; padding: 40px 48px; text-align: center; border-bottom: 1px solid #e0e6ed; }
+    .search-header h1 { margin: 0 0 20px; font-size: 26px; color: #0b2a44; }
+    .search-box { max-width: 650px; margin: 0 auto; display: flex; gap: 10px; }
+    .search-input { flex: 1; padding: 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 16px; }
+    .search-button { background: #0b2a44; color: #fff; border: none; padding: 0 25px; border-radius: 6px; cursor: pointer; font-weight: bold; }
+
+    /* メインコンテンツ */
+    .container { max-width: 1000px; margin: 30px auto; padding: 0 20px 80px; }
+    .info-bar { margin-bottom: 15px; font-size: 13px; color: #777; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+    
+    /* リストアイテム */
+    .researcher-row { display: flex; border: 1px solid #eee; border-radius: 8px; margin-bottom: 12px; background: #fff; transition: 0.2s; }
+    .researcher-row:hover { border-color: #0b2a44; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    
+    /* 初期非表示（検索で出現） */
+    .sub-member { display: none; background: #fafafa; border-style: dashed; } 
+
+    .researcher-info { padding: 15px 20px; flex: 1; }
+    .id-tag { font-family: monospace; font-size: 11px; color: #999; }
+    .role { font-size: 12px; font-weight: bold; }
+    .role.prof { color: #c62828; }
+    .role.student { color: #1565c0; }
+    .name { font-size: 18px; font-weight: bold; color: #0b2a44; margin: 2px 0; }
+    .tag { background: #f0f4f8; color: #334e68; font-size: 11px; padding: 2px 8px; border-radius: 4px; margin-right: 4px; display: inline-block; margin-top: 5px; }
+    
+    #no-results { display: none; text-align: center; padding: 50px; color: #999; border: 2px dashed #ccc; border-radius: 8px; }
+    footer { text-align: center; padding: 30px; border-top: 1px solid #eee; font-size: 11px; color: #aaa; }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div><b>湘南中央大学 研究者データベース</b></div>
+  <div><a href="index.html">大学TOP</a> | <a href="research.html">研究ポータル</a></div>
+</div>
+
+<header class="search-header">
+  <h1>RESEARCHER SEARCH</h1>
+  <div class="search-box">
+    <input type="text" id="searchInput" class="search-input" placeholder="氏名、学部、または M1, D3 などの学年で検索...">
+    <button onclick="executeSearch()" class="search-button">検索</button>
+  </div>
+</header>
+
+<main class="container">
+  <div class="info-bar">
+    <span id="counter">表示中: 主要教員</span> | 登録総数: 50名
+  </div>
+  
+  <div id="resultsList">
+    <div class="researcher-row" data-search="三浦誠司 みうら 法学部 教授 民法 SCU-L01"><div class="researcher-info"><span class="id-tag">SCU-L01</span><br><span class="role prof">法学部 教授</span><div class="name">三浦 誠司</div><div class="tags"><span class="tag">民法</span></div></div></div>
+    <div class="researcher-row sub-member" data-search="加藤由紀 かとう 法学部 院生 博士 D1 SCU-L02"><div class="researcher-info"><span class="id-tag">SCU-L02</span><br><span class="role student">法学研究科 博士課程(D1)</span><div class="name">加藤 由紀</div><div class="tags"><span class="tag">憲法</span></div></div></div>
+    <div class="researcher-row" data-search="高木正雄 たかぎ 法学部 准教授 刑法 SCU-L03"><div class="researcher-info"><span class="id-tag">SCU-L03</span><br><span class="role prof">法学部 准教授</span><div class="name">高木 正雄</div><div class="tags"><span class="tag">サイバー犯罪</span></div></div></div>
+    <div class="researcher-row" data-search="佐野優子 さの 法学部 教授 商法 SCU-L04"><div class="researcher-info"><span class="id-tag">SCU-L04</span><br><span class="role prof">法学部 教授</span><div class="name">佐野 優子</div><div class="tags"><span class="tag">企業統治</span></div></div></div>
+    <div class="researcher-row sub-member" data-search="中野健一 なかの 法学部 院生 修士 M1 SCU-L05"><div class="researcher-info"><span class="id-tag">SCU-L05</span><br><span class="role student">法学研究科 修士課程(M1)</span><div class="name">中野 健一</div><div class="tags"><span class="tag">国際法</span></div></div></div>
+    <div class="researcher-row" data-search="西村武 にしむら 法学部 准教授 行政法 SCU-L06"><div class="researcher-info"><span class="id-tag">SCU-L06</span><br><span class="role prof">法学部 准教授</span><div class="name">西村 武</div><div class="tags"><span class="tag">地方自治</span></div></div></div>
+    <div class="researcher-row sub-member" data-search="小島瑠璃 こじま 法学部 院生 博士 D2 SCU-L07"><div class="researcher-info"><span class="id-tag">SCU-L07</span><br><span class="role student">法学研究科 博士課程(D2)</span><div class="name">小島 瑠璃</div><div class="tags"><span class="tag">環境法</span></div></div></div>
+
+    <div class="researcher-row" data-search="佐々木義博 ささき 経営学部 教授 組織 SCU-B01"><div class="researcher-info"><span class="id-tag">SCU-B01</span><br><span class="role prof">経営学部 教授</span><div class="name">佐々木 義博</div><div class="tags"><span class="tag">組織心理学</span></div></div></div>
+    <div class="researcher-row" data-search="小林恵美 こばやし 経営学部 准教授 AI SCU-B02"><div class="researcher-info"><span class="id-tag">SCU-B02</span><br><span class="role prof">経営学部 准教授</span><div class="name">小林 恵美</div><div class="tags"><span class="tag">データ分析</span></div></div></div>
+    <div class="researcher-row sub-member" data-search="佐藤航平 さとう 経営学部 院生 修士 M2 SCU-B03"><div class="researcher-info"><span class="id-tag">SCU-B03</span><br><span class="role student">経営学研究科 修士課程(M2)</span><div class="name">佐藤 航平</div><div class="tags"><span class="tag">SNSマーケ</span></div></div></div>
+    <div class="researcher-row" data-search="藤田伸一 ふじた 経営学部 教授 会計 SCU-B04"><div class="researcher-info"><span class="id-tag">SCU-B04</span><br><span class="role prof">経営学部 教授</span><div class="name">藤田 伸一</div><div class="tags"><span class="tag">国際会計</span></div></div></div>
+    <div class="researcher-row sub-member" data-search="木村健 きむら 経営学部 院生 博士 D3 SCU-B05"><div class="researcher-info"><span class="id-tag">SCU-B05</span><br><span class="role student">経営学研究科 博士課程(D3)</span><div class="name">木村 健</div><div class="tags"><span class="tag">起業家精神</span></div></div></div>
+    <div class="researcher-row" data-search="杉本彩 すぎもと 経営学部 准教授 戦略 SCU-B06"><div class="researcher-info"><span class="id-tag">SCU-B06</span><br><span class="role prof">経営学部 准教授</span><div class="name">杉本 彩</div><div class="tags"><span class="tag">競争戦略</span></div></div></div>
+    <div class="researcher-row sub-member" data-search="本田翼 ほんだ 経営学部 院生 修士 M1 SCU-B08"><div class="researcher-info"><span class="id-tag">SCU-B08</span><br><span class="role student">経営学研究科 修士課程(M1)</span><div class="name">本田 翼</div><div class="tags"><span class="tag">ゲーム理論</span></div></div></div>
+
+    <div class="researcher-row" data-search="田中健一郎 たなか 経済学部 教授 公共 SCU-E01"><div class="researcher-info"><span class="id-tag">SCU-E01</span><br><span class="role prof">経済学部 教授</span><div class="name">田中 健一郎</div><div class="tags"><span class="tag">マクロ経済</span></div></div></div>
+    <div class="researcher-row sub-member" data-search="渡辺彩香 わたなべ 経済学部 院生 博士 D1 SCU-E02"><div class="researcher-info"><span class="id-tag">SCU-E02</span><br><span class="role student">経済学研究科 博士課程(D1)</span><div class="name">渡辺 彩香</div><div class="tags"><span class="tag">環境経済</span></div></div></div>
+    <div class="researcher-row" data-search="上田彰 うえだ 経済学部 准教授 計量 SCU-E03"><div class="researcher-info"><span class="id-tag">SCU-E03</span><br><span class="role prof">経済学部 准教授</span><div class="name">上田 彰</div><div class="tags"><span class="tag">統計分析</span></div></div></div>
+    <div class="researcher-row" data-search="山口真央 やまぐち 経済学部 准教授 労働 SCU-E04"><div class="researcher-info"><span class="id-tag">SCU-E04</span><br><span class="role prof">経済学部 准教授</span><div class="name">山口 真央</div><div class="tags"><span class="tag">雇用政策</span></div></div></div>
+    <div class="researcher-row sub-member" data-search="石井ゆかり いしい 経済学部 院生 修士 M2 SCU-E06"><div class="researcher-info"><span class="id-tag">SCU-E06</span><br><span class="role student">経済学研究科 修士課程(M2)</span><div class="name">石井 ゆかり</div><div class="tags"><span class="tag">データ統計</span></div></div></div>
+    <div class="researcher-row" data-search="野村浩太 のむら 経済学部 教授 財政 SCU-E05"><div class="researcher-info"><span class="id-tag">SCU-E05</span><br><span class="role prof">経済学部 教授</span><div class="name">野村 浩太</div><div class="tags"><span class="tag">地方財政</span></div></div></div>
+    <div class="researcher-row sub-member" data-search="久保田学 くぼた 経済学部 院生 博士 D2 SCU-E08"><div class="researcher-info"><span class="id-tag">SCU-E08</span><br><span class="role student">経済学研究科 博士課程(D2)</span><div class="name">久保田 学</div><div class="tags"><span class="tag">経済理論</span></div></div></div>
+
+    <div class="researcher-row" data-search="伊藤淳一 いとう 教育学部 教授 支援 SCU-D01"><div class="researcher-info"><span class="id-tag">SCU-D01</span><br><span class="role prof">教育学部 教授</span><div class="name">伊藤 淳一</div><div class="tags"><span class="tag">特別支援</span></div></div></div>
+    <div class="researcher-row sub-member" data-search="田中美咲 たなか 教育学部 院生 修士 M1 SCU-D02"><div class="researcher-info"><span class="id-tag">SCU-D02</span><br><span class="role student">教育学研究科 修士課程(M1)</span><div class="name">田中 美咲</div><div class="tags"><span class="tag">ICT教育</span></div></div></div>
+    <div class="researcher-row" data-search="鈴木直子 すずき 教育学部 准教授 心理 SCU-D03"><div class="researcher-info"><span class="id-tag">SCU-D03</span><br><span class="role prof">教育学部 准教授</span><div class="name">鈴木 直子</div><div class="tags"><span class="tag">発達心理</span></div></div></div>
+    <div class="researcher-row sub-member" data-search="山崎舞 やまざき 教育学部 院生 博士 D3 SCU-D05"><div class="researcher-info"><span class="id-tag">SCU-D05</span><br><span class="role student">教育学研究科 博士課程(D3)</span><div class="name">山崎 舞</div><div class="tags"><span class="tag">保育政策</span></div></div></div>
+    <div class="researcher-row" data-search="小川健次 おがわ 教育学部 准教授 算数 SCU-D06"><div class="researcher-info"><span class="id-tag">SCU-D06</span><br><span class="role prof">教育学部 准教授</span><div class="name">小川 健次</div><div class="tags"><span class="tag">初等算数</span></div></div></div>
+    <div class="researcher-row sub-member" data-search="村上真 むらかみ 教育学部 院生 修士 M2 SCU-D07"><div class="researcher-info"><span class="id-tag">SCU-D07</span><br><span class="role student">教育学研究科 修士課程(M2)</span><div class="name">村上 真</div><div class="tags"><span class="tag">教科書研究</span></div></div></div>
+
+    <div class="researcher-row" data-search="中村和夫 なかむら 人間社会 教授 都市 SCU-H01"><div class="researcher-info"><span class="id-tag">SCU-H01</span><br><span class="role prof">人間社会学部 教授</span><div class="name">中村 和夫</div><div class="tags"><span class="tag">地域社会</span></div></div></div>
+    <div class="researcher-row sub-member" data-search="吉田豊 よしだ 人間社会 院生 修士 M2 SCU-H03"><div class="researcher-info"><span class="id-tag">SCU-H03</span><br><span class="role student">人間社会研究科 修士課程(M2)</span><div class="name">吉田 豊</div><div class="tags"><span class="tag">メディア論</span></div></div></div>
+    <div class="researcher-row" data-search="林絵里 はやし 人間社会 教授 福祉 SCU-H04"><div class="researcher-info"><span class="id-tag">SCU-H04</span><br><span class="role prof">人間社会学部 教授</span><div class="name">林 絵里</div><div class="tags"><span class="tag">高齢者福祉</span></div></div></div>
+    <div class="researcher-row sub-member" data-search="佐々木空 ささき 人間社会 院生 博士 D1 SCU-H05"><div class="researcher-info"><span class="id-tag">SCU-H05</span><br><span class="role student">人間社会研究科 博士課程(D1)</span><div class="name">佐々木 空</div><div class="tags"><span class="tag">文化人類学</span></div></div></div>
+    <div class="researcher-row" data-search="内田茂 うちだ 人間社会 准教授 運動 SCU-H06"><div class="researcher-info"><span class="id-tag">SCU-H06</span><br><span class="role prof">人間社会学部 准教授</span><div class="name">内田 茂</div><div class="tags"><span class="tag">スポーツ心理</span></div></div></div>
+    <div class="researcher-row sub-member" data-search="今井花 いまい 人間社会 院生 修士 M1 SCU-H07"><div class="researcher-info"><span class="id-tag">SCU-H07</span><br><span class="role student">人間社会研究科 修士課程(M1)</span><div class="name">今井 花</div><div class="tags"><span class="tag">ジェンダー論</span></div></div></div>
+
+    <div class="researcher-row" data-search="松田博 まつだ 観光文化 教授 遺産 SCU-T02"><div class="researcher-info"><span class="id-tag">SCU-T02</span><br><span class="role prof">観光文化学部 教授</span><div class="name">松田 博</div><div class="tags"><span class="tag">文化遺産</span></div></div></div>
+    <div class="researcher-row sub-member" data-search="後藤健 ごとう 観光文化 院生 修士 M1 SCU-T03"><div class="researcher-info"><span class="id-tag">SCU-T03</span><br><span class="role student">観光文化研究科 修士課程(M1)</span><div class="name">後藤 健</div><div class="tags"><span class="tag">鉄道観光</span></div></div></div>
+    <div class="researcher-row" data-search="金沢文子 かなざわ 観光文化 准教授 宿泊 SCU-T04"><div class="researcher-info"><span class="id-tag">SCU-T04</span><br><span class="role prof">観光文化学部 准教授</span><div class="name">金沢 文子</div><div class="tags"><span class="tag">経営管理</span></div></div></div>
+    <div class="researcher-row sub-member" data-search="パク・ジヒョン Park 観光文化 院生 博士 D2 SCU-T05"><div class="researcher-info"><span class="id-tag">SCU-T05</span><br><span class="role student">観光文化研究科 博士課程(D2)</span><div class="name">Park Ji-Hyun</div><div class="tags"><span class="tag">コンテンツ観光</span></div></div></div>
+    <div class="researcher-row" data-search="遠藤正 えんどう 観光文化 教授 航空 SCU-T06"><div class="researcher-info"><span class="id-tag">SCU-T06</span><br><span class="role prof">観光文化学部 教授</span><div class="name">遠藤 正</div><div class="tags"><span class="tag">航空政策</span></div></div></div>
+    <div class="researcher-row sub-member" data-search="佐藤理沙 さとう 観光文化 院生 博士 D3 SCU-T07"><div class="researcher-info"><span class="id-tag">SCU-T07</span><br><span class="role student">観光文化研究科 博士課程(D3)</span><div class="name">佐藤 理沙</div><div class="tags"><span class="tag">観光動態分析</span></div></div></div>
+
+    <div class="researcher-row" data-search="岡田道夫 おかだ 生活環境 教授 防災 SCU-V01"><div class="researcher-info"><span class="id-tag">SCU-V01</span><br><span class="role prof">生活環境計画学部 教授</span><div class="name">岡田 道夫</div><div class="tags"><span class="tag">耐震設計</span></div></div></div>
+    <div class="researcher-row sub-member" data-search="松本理恵 まつもと 生活環境 院生 博士 D3 SCU-V02"><div class="researcher-info"><span class="id-tag">SCU-V02</span><br><span class="role student">生活環境研究科 博士課程(D3)</span><div class="name">松本 理恵</div><div class="tags"><span class="tag">スマートシティ</span></div></div></div>
+    <div class="researcher-row" data-search="清水透 しみず 生活環境 教授 居住 SCU-V03"><div class="researcher-info"><span class="id-tag">SCU-V03</span><br><span class="role prof">生活環境計画学部 教授</span><div class="name">清水 透</div><div class="tags"><span class="tag">バリアフリー</span></div></div></div>
+    <div class="researcher-row sub-member" data-search="高橋真一 たかはし 生活環境 院生 修士 M2 SCU-V05"><div class="researcher-info"><span class="id-tag">SCU-V05</span><br><span class="role student">生活環境研究科 修士課程(M2)</span><div class="name">高橋 真一</div><div class="tags"><span class="tag">省エネ住宅</span></div></div></div>
+    <div class="researcher-row" data-search="坂本直人 さかもと 生活環境 教授 景観 SCU-V06"><div class="researcher-info"><span class="id-tag">SCU-V06</span><br><span class="role prof">生活環境計画学部 教授</span><div class="name">坂本 直人</div><div class="tags"><span class="tag">都市景観史</span></div></div></div>
+    <div class="researcher-row sub-member" data-search="井上あかね いのうえ 生活環境 院生 博士 D1 SCU-V07"><div class="researcher-info"><span class="id-tag">SCU-V07</span><br><span class="role student">生活環境研究科 博士課程(D1)</span><div class="name">井上 あかね</div><div class="tags"><span class="tag">環境アセスメント</span></div></div></div>
+    <div class="researcher-row sub-member" data-search="千葉裕一 ちば 生活環境 院生 修士 M1 SCU-V08"><div class="researcher-info"><span class="id-tag">SCU-V08</span><br><span class="role student">生活環境研究科 修士課程(M1)</span><div class="name">千葉 裕一</div><div class="tags"><span class="tag">材料リサイクル</span></div></div></div>
+
+    <div class="researcher-row" data-search="原田泰 はらだ 経済学部 教授 経済 SCU-E09"><div class="researcher-info"><span class="id-tag">SCU-E09</span><br><span class="role prof">経済学部 教授</span><div class="name">原田 泰</div><div class="tags"><span class="tag">日本経済</span></div></div></div>
+    <div class="researcher-row sub-member" data-search="工藤美紀 くどう 経営学部 院生 博士 D2 SCU-B09"><div class="researcher-info"><span class="id-tag">SCU-B09</span><br><span class="role student">経営学研究科 博士課程(D2)</span><div class="name">工藤 美紀</div><div class="tags"><span class="tag">消費者行動</span></div></div></div>
+    <div class="researcher-row sub-member" data-search="大野剛 おおの 法学部 院生 修士 M2 SCU-L08"><div class="researcher-info"><span class="id-tag">SCU-L08</span><br><span class="role student">法学研究科 修士課程(M2)</span><div class="name">大野 剛</div><div class="tags"><span class="tag">知的財産</span></div></div></div>
+    <div class="researcher-row" data-search="福田信 ふくだ 観光文化 教授 地理 SCU-T08"><div class="researcher-info"><span class="id-tag">SCU-T08</span><br><span class="role prof">観光文化学部 教授</span><div class="name">福田 信</div><div class="tags"><span class="tag">観光地理学</span></div></div></div>
+
+  </div>
+  <div id="no-results">検索条件に合う研究者は見つかりませんでした。</div>
+</main>
+
+<script>
+  function executeSearch() {
+    const input = document.getElementById('searchInput').value.trim().toLowerCase();
+    const rows = document.querySelectorAll('.researcher-row');
+    const counter = document.getElementById('counter');
+    const noResults = document.getElementById('no-results');
+    let matchCount = 0;
+
+    rows.forEach(row => {
+      const searchData = row.getAttribute('data-search').toLowerCase();
+      const isSub = row.classList.contains('sub-member');
+
+      if (input === "") {
+        if (!isSub) { row.style.display = 'flex'; matchCount++; }
+        else { row.style.display = 'none'; }
+        counter.innerText = "表示中: 主要教員";
+      } else if (searchData.includes(input)) {
+        row.style.display = 'flex';
+        matchCount++;
+        counter.innerText = `表示中: ${matchCount}名`;
+      } else {
+        row.style.display = 'none';
+      }
+    });
+
+    noResults.style.display = (matchCount === 0) ? 'block' : 'none';
+  }
+
+  document.getElementById('searchInput').addEventListener('keypress', e => {
+    if (e.key === 'Enter') executeSearch();
+  });
+</script>
+
+<footer>
+  &copy; 2026 Shonan Chuo University. All Rights Reserved.
+</footer>
+
+</body>
+</html>

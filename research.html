@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>研究｜湘南中央大学</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background: #ffffff;
+      color: #333;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ===== TOP BAR (フルリンク対応版) ===== */
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 48px;
+      background: #0b2a44;
+      color: #ffffff;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .top-bar a {
+      color: #ffffff !important;
+    }
+
+    .top-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      height: 56px;
+      margin-right: 14px;
+    }
+
+    .univ-name {
+      font-weight: 600;
+      font-size: 15px;
+      margin-right: 18px;
+    }
+
+    .nav-group {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-item {
+      padding: 0 12px;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .nav-item:hover {
+      text-decoration: underline !important;
+    }
+
+    /* 現在のページ（研究）を強調 */
+    .nav-item.active {
+      text-decoration: underline !important;
+      font-weight: bold;
+    }
+
+    .top-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .right-item:hover {
+      text-decoration: underline !important;
+    }
+
+    /* ===== CONTENT ===== */
+    .research-header {
+      background-color: #f4f7f9;
+      padding: 80px 48px;
+      text-align: center;
+    }
+
+    .research-header h1 {
+      margin: 0;
+      font-size: 36px;
+      color: #0b2a44;
+      letter-spacing: 1px;
+    }
+
+    .tile-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      max-width: 1240px;
+      margin: 40px auto;
+      padding: 0 48px;
+      gap: 15px;
+    }
+
+    /* タイルをリンク(aタグ)として機能させる */
+    .tile {
+      border: 1px solid #ddd;
+      padding: 30px 10px;
+      text-align: center;
+      background: #fff;
+      transition: 0.2s;
+      display: block;
+    }
+
+    .tile:hover {
+      background: #f8f9fa;
+      border-bottom: 3px solid #0b2a44;
+      transform: translateY(-2px);
+    }
+
+    .tile h3 {
+      margin: 0;
+      font-size: 17px;
+      color: #0b2a44;
+    }
+
+    .tile span {
+      display: block;
+      font-size: 11px;
+      color: #999;
+      margin-top: 5px;
+    }
+
+    .info-section {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 48px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      border-left: 5px solid #0b2a44;
+      padding-left: 15px;
+      margin-bottom: 30px;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .research-card {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 4px;
+      border: 1px solid #eee;
+    }
+
+    .research-card h4 {
+      margin: 0 0 10px 0;
+      color: #0b2a44;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      border-top: 1px solid #eee;
+      font-size: 12px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="top-left">
+    <a href="index.html">
+      <img src="newemblem.png" alt="湘南中央大学 校章" class="logo">
+    </a>
+    <a href="index.html" class="univ-name">湘南中央大学</a>
+    
+    <div class="nav-group">
+      <a href="education.html" class="nav-item">教育</a>
+      <a href="research.html" class="nav-item active">研究</a>
+      <a href="social.html" class="nav-item">社会連携</a>
+      <a href="exam.html" class="nav-item">受験生</a>
+      <a href="line.html" class="nav-item">LINE公式</a>
+      <a href="alumni.html" class="nav-item">卒業生</a>
+      <a href="parents.html" class="nav-item">保護者等</a>
+      <a href="campus-life.html" class="nav-item">在学生・教職員</a>
+      <a href="general.html" class="nav-item">一般・連携</a>
+    </div>
+  </div>
+
+  <div class="top-right">
+    <a href="donation.html" class="right-item">ご寄付</a>
+    <a href="access.html" class="right-item">アクセス</a>
+    <a href="data.html" class="right-item">データ集</a>
+    <a href="search.html" class="right-item">検索</a>
+    <a href="lang.html" class="right-item">Language</a>
+  </div>
+</div>
+
+<header class="research-header">
+  <h1>Research Activities</h1>
+  <p style="color:#666; margin-top:10px;">湘南中央大学 研究活動紹介</p>
+</header>
+
+<nav class="tile-grid">
+  <a href="researcher-db.html" class="tile"><h3>研究者データベース</h3><span>Researcher Database</span></a>
+  <a href="institutes.html" class="tile"><h3>研究組織・施設</h3><span>Organization / Facilities</span></a>
+  <a href="sangaku.html" class="tile"><h3>産学連携</h3><span>Collaboration</span></a>
+  <a href="grants.html" class="tile"><h3>研究公募・助成</h3><span>Grants</span></a>
+  <a href="ethics.html" class="tile"><h3>研究倫理</h3><span>Ethics</span></a>
+</nav>
+
+<main class="info-section">
+  <h2 class="section-title">最新の研究トピックス</h2>
+  <div class="card-container">
+    <div class="research-card">
+      <h4>海洋資源の持続的活用</h4>
+      <p style="font-size: 14px; line-height: 1.6;">相模湾の生態系を守りつつ、新たな海洋エネルギーを創出するプロジェクトを推進しています。</p>
+    </div>
+    <div class="research-card">
+      <h4>スマート観光都市のデザイン</h4>
+      <p style="font-size: 14px; line-height: 1.6;">AIを用いた人流予測により、湘南エリアの観光渋滞解消と経済活性化を両立させる研究です。</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  &copy; 2026 Shonan Chuo University. All Rights Reserved.
+</footer>
+
+</body>
+</html>

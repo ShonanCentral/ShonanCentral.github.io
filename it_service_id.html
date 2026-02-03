@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>臨時ID発行システム | 湘南中央大学</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Helvetica Neue", Arial, sans-serif; color: #333; background: #f4f7f9; }
+    .container { max-width: 700px; margin: 50px auto; padding: 40px; background: #fff; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+    h2 { color: #0b2a44; border-bottom: 2px solid #0b2a44; padding-bottom: 10px; }
+    
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-weight: bold; margin-bottom: 5px; font-size: 14px; }
+    .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; }
+    
+    .btn-submit { width: 100%; padding: 15px; background: #0b2a44; color: #fff; border: none; border-radius: 4px; font-size: 16px; font-weight: bold; cursor: pointer; }
+    
+    /* 発行結果画面 */
+    #result-area { display: none; background: #e8f5e9; border: 2px dashed #2e7d32; padding: 30px; text-align: center; margin-top: 20px; }
+    .id-display { font-size: 32px; font-weight: bold; color: #1b5e20; letter-spacing: 2px; margin: 15px 0; }
+    .btn-go-login { display: inline-block; margin-top: 20px; padding: 10px 25px; background: #2e7d32; color: #fff; text-decoration: none; border-radius: 4px; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div id="form-area">
+    <h2>臨時ID 即時発行フォーム</h2>
+    <p style="font-size: 13px; color: #666;">※研究用ゲストアカウントを即時発行します。有効期限は24時間です。</p>
+    
+    <div class="form-group">
+      <label>氏名（漢字）</label>
+      <input type="text" id="user-name" placeholder="湘南 太郎">
+    </div>
+    <div class="form-group">
+      <label>所属機関</label>
+      <input type="text" placeholder="〇〇株式会社 / 〇〇大学">
+    </div>
+    <div class="form-group">
+      <label>受入教員（本学教職員名）</label>
+      <input type="text" placeholder="例：中央 教授">
+    </div>
+
+    <button class="btn-submit" onclick="issueID()">臨時IDを発行する</button>
+  </div>
+
+  <div id="result-area">
+    <h3 style="margin-top:0;">臨時IDが発行されました！</h3>
+    <p>以下のIDをメモして、ログイン画面で入力してください。</p>
+    <div class="id-display" id="generated-id">GUEST-XXXX</div>
+    <p style="font-size: 12px; color: #555;">パスワードは共通：<b>SCU_2026</b></p>
+    <a href="login.html" class="btn-go-login">ログイン画面へ移動</a>
+  </div>
+</div>
+
+<script>
+  function issueID() {
+    const name = document.getElementById('user-name').value;
+    if(!name) { alert('氏名を入力してください'); return; }
+
+    // ランダムな4桁のIDを生成
+    const randomId = "GUEST-" + Math.floor(1000 + Math.random() * 9000);
+    document.getElementById('generated-id').innerText = randomId;
+    
+    // ブラウザのメモリに一時保存（ログイン画面でチェックするため）
+    localStorage.setItem('tempID', randomId);
+
+    // 画面切り替え
+    document.getElementById('form-area').style.display = 'none';
+    document.getElementById('result-area').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>

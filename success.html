@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>認証成功 | 湘南中央大学</title>
+  
+  <script>
+    // セキュリティチェック：ログインしていない場合は追い返す
+    if (localStorage.getItem('isLoggedIn') !== 'true') {
+      alert('認証セッションがありません。ログインし直してください。');
+      window.location.replace('login.html');
+    }
+
+    // 「完了」ボタンを押した時の移動先を判定する関数
+    function handleFinish() {
+      // URLの後ろについている「?from=...」を取得
+      const params = new URLSearchParams(window.location.search);
+      const returnPage = params.get('from');
+
+      if (returnPage) {
+        // もし戻り先（ethics.htmlなど）が指定されていれば、そこに戻る
+        window.location.href = returnPage;
+      } else {
+        // 指定がない場合はデフォルトのポータルTOPへ
+        window.location.href = 'grants.html';
+      }
+    }
+  </script>
+
+  <style>
+    * { box-sizing: border-box; }
+    body { 
+      margin: 0; 
+      font-family: "Helvetica Neue", Arial, sans-serif; 
+      background: #f0f2f5; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      height: 100vh; 
+    }
+    .success-card {
+      background: #fff;
+      width: 500px;
+      padding: 60px 40px;
+      border-radius: 24px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+    .icon-circle {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 40px;
+      border: 5px solid #0b2a44;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .icon-circle::after {
+      content: '';
+      width: 40px;
+      height: 20px;
+      border-left: 6px solid #0b2a44;
+      border-bottom: 6px solid #0b2a44;
+      transform: rotate(-45deg);
+      margin-top: -8px;
+    }
+    h1 { font-size: 24px; color: #333; margin-bottom: 40px; }
+    .status-badge { font-size: 32px; font-weight: bold; color: #0b2a44; letter-spacing: 2px; margin-bottom: 40px; }
+    
+    /* 完了ボタンのスタイル */
+    .btn-complete {
+      display: block;
+      width: 100%;
+      padding: 20px;
+      background: #fff;
+      color: #333;
+      border: 1px solid #ddd;
+      border-radius: 40px;
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn-complete:hover { background: #f0f2f5; border-color: #bbb; }
+  </style>
+</head>
+<body>
+
+<div class="success-card">
+  <div class="icon-circle"></div>
+  <h1>認証が完了しました</h1>
+  <div class="status-badge">SESSION ACTIVE</div>
+
+  <button class="btn-complete" onclick="handleFinish()">完了</button>
+</div>
+
+</body>
+</html>

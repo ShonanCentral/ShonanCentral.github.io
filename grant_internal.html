@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>研究支援ポータル | 湘南中央大学</title>
+  
+  <script>
+    if (localStorage.getItem('isLoggedIn') !== 'true') {
+      alert('認証セッションがありません。ログインし直してください。');
+      window.location.href = 'login.html';
+    }
+  </script>
+
+  <style>
+    :root {
+      --primary-color: #0b2a44;
+      --accent-color: #c62828;
+      --bg-color: #f8f9fa;
+    }
+
+    body { 
+      margin: 0; 
+      font-family: "Helvetica Neue", Arial, "Hiragino Sans", sans-serif; 
+      background: var(--bg-color); 
+      color: #333;
+    }
+
+    header {
+      background: var(--primary-color);
+      color: white;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .header-logo-link {
+      text-decoration: none;
+      color: #ffffff;
+      transition: 0.2s;
+    }
+
+    .header-logo-link:hover { opacity: 0.7; }
+
+    .logo {
+      font-weight: bold;
+      font-size: 18px;
+      letter-spacing: 0.5px;
+    }
+
+    .user-info { font-size: 14px; }
+    
+    .logout-btn {
+      background: transparent;
+      color: white;
+      border: 1px solid white;
+      padding: 6px 15px;
+      border-radius: 20px;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 12px;
+      transition: 0.3s;
+      margin-left: 10px;
+    }
+    .logout-btn:hover { background: white; color: var(--primary-color); }
+
+    .container {
+      max-width: 1100px;
+      margin: 30px auto;
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      gap: 30px;
+      padding: 0 20px;
+    }
+
+    nav ul { list-style: none; padding: 0; }
+    nav li { margin-bottom: 10px; }
+    nav a {
+      display: block;
+      padding: 12px 15px;
+      background: #fff;
+      color: var(--primary-color);
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      transition: 0.2s;
+    }
+    nav a:hover { background: #eef2f6; }
+    nav a.active { background: var(--primary-color); color: #fff; }
+
+    main { background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+
+    h2 { border-left: 5px solid var(--primary-color); padding-left: 15px; margin-bottom: 30px; }
+
+    .alert-box {
+      background: #fff3e0;
+      border: 1px solid #ffe0b2;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+
+    .grant-list { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    .grant-list th, .grant-list td { 
+      padding: 15px; 
+      text-align: left; 
+      border-bottom: 1px solid #eee; 
+    }
+    .grant-list th { background: #f1f3f4; font-size: 14px; }
+
+    .status-badge {
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: bold;
+      color: white;
+    }
+    .urgent { background: var(--accent-color); }
+    .normal { background: #4caf50; }
+
+    .download-btn {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="grants.html" class="header-logo-link">
+    <div class="logo">湘南中央大学 研究支援ポータル</div>
+  </a>
+  <div class="user-info">
+    <span>ログイン中: <strong id="dispName">読込中...</strong> 様</span> | 
+    <a href="#" class="logout-btn" onclick="logout()">ログアウト</a>
+  </div>
+</header>
+
+<div class="container">
+  <aside>
+    <nav>
+      <ul>
+        <li><a href="grants.html" class="active">ポータルTOP</a></li>
+        <li><a href="ethics.html">研究倫理・審査</a></li>
+        <li><a href="#">公募情報一覧</a></li>
+        <li><a href="#">申請様式集</a></li>
+        <li><a href="#">学内締切カレンダー</a></li>
+        <li><a href="#">ヘルプ・FAQ</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main>
+    <h2>現在受付中の助成金・外部資金</h2>
+
+    <div class="alert-box">
+      <strong style="color: var(--accent-color);">【重要】</strong> 
+      2026年度 科研費（基盤研究B）の学内締切は <strong>2月20日(金) 17:00</strong> です。
+      書類の不備チェックを希望する場合は、お早めに研究支援課まで提出してください。
+    </div>
+
+    <table class="grant-list">
+      <thead>
+        <tr>
+          <th>種別</th>
+          <th>名称</th>
+          <th>学内締切</th>
+          <th>詳細</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="status-badge urgent">締切間近</span></td>
+          <td>2026年度 科学研究費助成事業（基盤B）</td>
+          <td>2026/02/20</td>
+          <td><a href="#" class="download-btn">要領(PDF)</a></td>
+        </tr>
+        <tr>
+          <td><span class="status-badge normal">受付中</span></td>
+          <td>湘南中央大学 若手研究者育成助成</td>
+          <td>2026/03/15</td>
+          <td><a href="#" class="download-btn">申請書(Word)</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top: 50px; padding: 25px; background: #f1f3f4; border-radius: 8px; font-size: 13px;">
+      <h4 style="margin-top: 0; color: var(--primary-color);">お問い合わせ先</h4>
+      <p style="margin-bottom: 5px;"><strong>研究支援課 外部資金係（管理棟 3F）</strong></p>
+      <p style="margin-top: 0; line-height: 1.6;">
+        内線：3012（科研費担当） / 3013（学内助成担当）<br>
+        Mail：grant-support@shonan-central.ac.jp<br>
+        <span style="color: #666;">※一般的な教室への内線は 1XXX をご利用ください。</span>
+      </p>
+    </div>
+  </main>
+</div>
+
+<script>
+  window.onload = function() {
+    const uName = localStorage.getItem('currentUserName') || 'ゲスト';
+    document.getElementById('dispName').innerText = uName;
+  }
+
+  function logout() {
+    if(confirm('ログアウトしてログイン画面に戻りますか？')) {
+      localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('currentUserName');
+      window.location.href = 'login.html';
+    }
+  }
+</script>
+
+</body>
+</html>
